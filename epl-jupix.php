@@ -41,10 +41,10 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof EPL_Jupix ) ) {
 				self::$instance = new EPL_Jupix;
 				self::$instance->hooks();
-				$epl_running = get_option('epl_running');
-				if ( $epl_running ) {
+				if ( defined('EPL_RUNNING') ) {
 					self::$instance->setup_constants();
 					self::$instance->includes();
+					self::$instance->processing();
 				}
 			}
 			return self::$instance;
@@ -181,8 +181,17 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 			
 			include_once( EPL_JPI_PLUGIN_PATH_ASSETS . 'assets.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php' );
-			
-			
+
+		}
+		
+		/*
+		 * Include required files
+		 *
+		 * @access private
+		 * @since 1.0
+		 * @return void
+		 */
+		public function processing() {
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'functions.php' );
 		}
 		

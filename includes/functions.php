@@ -206,7 +206,7 @@ function epl_jpi_processing_age() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_price_qualifier( $input == FALSE , $price == 0 ) {
+function epl_jpi_processing_price_qualifier( $input = FALSE , $price = 0 ) {
 	$price_qualifier = array(
 		'1'		=>	__( 'Asking Price Of' , 		'epl-jpi' ),
 		'2'		=>	__( 'Fixed Price' , 			'epl-jpi' ),
@@ -379,7 +379,7 @@ function epl_jpi_processing_property_style() {
 		33 4 Unconverted Barn
 		
 		*/
-	);
+
 }
 
 /**
@@ -434,7 +434,7 @@ function epl_jpi_processing_rent_frequency() {
 /**
  * Jupix studentProperty
  *
- * Will be equal to ‘1’ this property has a let type of ‘Student’
+ * Will be equal to \911\92 this property has a let type of \91Student\92
  *
  * @package     EPL_JPI
  * @node		studentProperty
@@ -492,7 +492,7 @@ function epl_jpi_processing_letting_fee_policy_details() {
  * @epl_meta	property_price_view
  * @subpackage  Processing Functions
  * @since       1.0
- */
+ 
 function epl_jpi_processing_price_qualifier() {
 	$price_qualifier = array(
 		'1'		=>	__( 'Asking Price Of' , 		'epl-jpi' ),
@@ -505,7 +505,7 @@ function epl_jpi_processing_price_qualifier() {
 		'8'		=>	__( 'Sale By Tender' , 			'epl-jpi' )
 	);
 }
-
+*/
 /**
  * Jupix propertyType
  *
@@ -748,9 +748,9 @@ function epl_jpi_processing_com_property_type() {
 		'3'		=>	__( 'Business Park' , 					'epl-jpi' ),
 		'4'		=>	__( 'Science / Tech / R&D' , 			'epl-jpi' ),
 		'5'		=>	__( 'A1 - High Street' , 				'epl-jpi' ),
-		'6'		=>	__( 'A1 – Centre' , 					'epl-jpi' ),
+		'6'		=>	__( 'A1 \96 Centre' , 					'epl-jpi' ),
 		'7'		=>	__( 'A1 - Out Of Town' , 				'epl-jpi' ),
-		'8'		=>	__( 'A1 – Other' , 						'epl-jpi' ),
+		'8'		=>	__( 'A1 \96 Other' , 						'epl-jpi' ),
 		'9'		=>	__( 'A2 - Financial Services' , 		'epl-jpi' ),
 		'10'	=>	__( 'A3 - Restaurants / Cafes' , 		'epl-jpi' ),
 		'11'	=>	__( 'A4 - Pubs / Bars / Clubs' , 		'epl-jpi' ),
