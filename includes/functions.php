@@ -24,11 +24,18 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_sale_poa() {
-	$values = array(
-		'0'	=>	__( 'yes' , 'epl-jpi' ),	// Display Price
-		'1'	=>	__( 'no' , 'epl-jpi' )		// Hide Price
+function epl_jpi_property_price_display( ) {
+	// Jupix	=>	Easy Property Listings
+	$defaults = array(
+		'0'	=>	'yes',	// Display Price
+		'1'	=>	'no'	// Hide Price
 	);
+	return $defaults;
+}
+function epl_jpi_property_price_display_value( $key ) {
+	$array = epl_jpi_property_price_display();
+	$value = array_key_exists( $key , $array ) && !empty( $array[$key] )  ? $array[$key] : '';
+	return $value;
 }
 
 /**
@@ -46,14 +53,17 @@ function epl_jpi_processing_sale_poa() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_area_units() {
-	$com_area_units = array(
-		'acres'		=>	__( 'acres' , 		'epl-jpi' ),
-		'hectares'	=>	__( 'hectares' , 	'epl-jpi' ),
+function epl_jpi_property_building_area_unit_filter() {
+	$defaults = array(
+		'acres'		=>	__( 'Acres' , 		'epl-jpi' ),
+		'hectares'	=>	__( 'Hectares' , 	'epl-jpi' ),
 		'sq m'		=>	__( 'sq m' , 		'epl-jpi' ),
 		'sq ft'		=>	__( 'sq ft' , 		'epl-jpi' )
 	);
+	return $defaults;
 }
+add_filter( 'epl_opts_area_unit_filter' , 'epl_jpi_property_building_area_unit_filter' );
+
 
 /**
  * Jupix flags
@@ -61,7 +71,7 @@ function epl_jpi_processing_com_area_units() {
  * Agent-specific list of property flags
  *
  * @package     EPL_JPI
- * @node		flags
+ * @node	flags
  * @post_type	property, rental, commercial
  * @epl_meta	property_flags * NEW
  * @subpackage  Processing Functions
@@ -78,24 +88,25 @@ function epl_jpi_processing_flags() {
 }
 
 /*
- **********************************************
+ ***********************
  * Residential and Rural
  */
  
 /**
  * Jupix availability
  *
- * The following fields apply to residential lettings properties only
+ * The following fields apply to residential rural properties only
  *
  * @package     EPL_JPI
- * @node		availability
+ * @node	availability
  * @post_type	property, rural
  * @epl_meta	property_status
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_property_availability() {
-	$availability = array(
+ 
+function epl_jpi_property_status( ) {
+	$jupix_defaults = array(
 		'1'	=>	__( 'On Hold' , 	'epl-jpi' ),
 		'2'	=>	__( 'For Sale' , 	'epl-jpi' ),
 		'3'	=>	__( 'Under Offer' , 	'epl-jpi' ),
@@ -103,19 +114,59 @@ function epl_jpi_processing_property_availability() {
 		'5'	=>	__( 'Sold' , 		'epl-jpi' ),
 		'7'	=>	__( 'Withdrawn' , 	'epl-jpi' )
 	);
+
+	// Jupix	=>	Easy Property Listings
+	$defaults = array(
+		'1'	=>	'offmarket',	// On Hold
+		'2'	=>	'current',	// For Sale
+		'3'	=>	'under-offer',	// Under Offer
+		'4'	=>	'sold_stc',	// Sold STC
+		'5'	=>	'sold',		// Sold
+		'7'	=>	'withdrawn'	// Withdrawn
+	);
+	return $defaults;
 }
+
+function epl_jpi_property_status_value( $key ) {
+	$array = epl_jpi_property_status();
+	$value = array_key_exists( $key , $array ) && !empty( $array[$key] )  ? $array[$key] : '';
+	return $value;
+}
+
+function epl_jpi_property_status_filter() {
+	$defaults = array(
+		'current'	=>	__('Current', 'epl'),		// 2
+		'withdrawn'	=>	__('Withdrawn', 'epl'),		// 7
+		'offmarket'	=>	__('On Hold', 'epl'),		// 1
+		'sold'		=>	array(				// 5
+			'label'		=>	__('Sold', 'epl'),
+			'exclude'	=>	array('rental')
+		),
+		'sold_stc'		=>	array(			// 4
+			'label'		=>	__('Sold STC', 'epl'),
+			'exclude'	=>	array('rental')		
+		),
+		'leased'		=>	array(
+			'label'		=>	__('Leased', 'epl'),
+			'include'	=>	array('rental', 'commercial', 'commercial_land', 'business')
+		)
+	);
+	return $defaults;
+}
+add_filter( 'epl_opts_property_status_filter' , 'epl_jpi_property_status_filter' );
 
 /**
  * Jupix saleBy
  *
  * @package     EPL_JPI
- * @node		saleBy
+ * @node	saleBy
  * @epl_meta	property_authority
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_sale_by() {
-	$sale_by = array(
+
+function epl_jpi_property_authority() {
+	$jupix = array(
 		'0'	=>	__( 'Not Specified' , 	'epl-jpi' ),
 		'1'	=>	__( 'Private Treaty' , 	'epl-jpi' ),
 		'2'	=>	__( 'By Auction' , 	'epl-jpi' ),
@@ -123,7 +174,38 @@ function epl_jpi_processing_sale_by() {
 		'4'	=>	__( 'By Tender' , 	'epl-jpi' ),
 		'5'	=>	__( 'Offers Invited' , 	'epl-jpi' )
 	);
+	
+	$defaults = array(
+		'0'	=>	'open',
+		'1'	=>	'exclusive',
+		'2'	=>	'auction',	// Important for EPL Pricing
+		'3'	=>	'confidential',
+		'4'	=>	'tender',
+		'5'	=>	'offers',
+	);
+
+	return $defaults;
 }
+
+function epl_jpi_property_authority_value( $key ) {
+	$array = epl_jpi_property_authority();
+	$value = array_key_exists( $key , $array ) && !empty( $array[$key] )  ? $array[$key] : '';
+	return $value;
+}
+
+function epl_jpi_property_authority_filter() {
+	$defaults = array(
+		'exclusive'	=>	__( 'Private Treaty' , 	'epl-jpi' ),
+		'open'		=>	__( 'Not Specified' , 	'epl-jpi' ),
+		'auction'	=>	__( 'By Auction' , 	'epl-jpi' ),	// Important for EPL Pricing
+		'confidential'	=>	__( 'Confidential' , 	'epl-jpi' ),
+		'tender'	=>	__( 'By Tender' , 	'epl-jpi' ),
+		'offers'	=>	__( 'Offers Invited' , 	'epl-jpi' )
+	);
+
+	return $defaults;
+}
+add_filter( 'epl_property_authority_filter' , 'epl_jpi_property_authority_filter' );
 
 /**
  **********************************************
@@ -136,7 +218,7 @@ function epl_jpi_processing_sale_by() {
  * The number of reception rooms
  *
  * @package     EPL_JPI
- * @node		propertyReceptionRooms
+ * @node	propertyReceptionRooms
  * @post_type	property, rental
  * @epl_meta	property_reception_rooms * NEW
  * @subpackage  Processing Functions
@@ -152,7 +234,7 @@ function epl_jpi_processing_reception_rooms() {
  * The number of kitchens
  *
  * @package     EPL_JPI
- * @node		propertyKitchens
+ * @node	propertyKitchens
  * @post_type	property, rental
  * @epl_meta	property_kitchens * NEW
  * @subpackage  Processing Functions
@@ -168,7 +250,7 @@ function epl_jpi_processing_kitchens() {
  * The number of kitchens
  *
  * @package     EPL_JPI
- * @node		propertyAge
+ * @node	propertyAge
  * @post_type	property, rental
  * @epl_meta	property_age * NEW
  * @subpackage  Processing Functions
@@ -199,10 +281,10 @@ function epl_jpi_processing_age() {
  * Jupix priceQualifier
  *
  * @package     EPL_JPI
- * @node		priceQualifier
+ * @node	priceQualifier
  * @post_type	property
  * @epl_meta	property_price_view
- * @usage		[epl_jpi_processing_price_qualifier({priceQualifier[1]},{price[1]})]
+ * @usage	[epl_jpi_processing_price_qualifier({priceQualifier[1]},{price[1]})]
  * @subpackage  Processing Functions
  * @since       1.0
  */
@@ -231,7 +313,7 @@ function epl_jpi_processing_price_qualifier( $input = FALSE , $price = 0 ) {
  * It is a numeric value which corresponds to the lookups below.
  *
  * @package     EPL_JPI
- * @node		propertyTenure
+ * @node	propertyTenure
  * @post_type	property
  * @epl_meta	property_tenure * NEW
  * @subpackage  Processing Functions
@@ -253,7 +335,7 @@ function epl_jpi_processing_property_tenure() {
  * Jupix developmentOpportunity
  *
  * @package     EPL_JPI
- * @node		developmentOpportunity
+ * @node	developmentOpportunity
  * @post_type	property, commercial
  * @epl_meta	property_development_opportunity * NEW
  * @subpackage  Processing Functions
@@ -261,8 +343,8 @@ function epl_jpi_processing_property_tenure() {
  */
 function epl_jpi_processing_development_opportunity() {
 	$development_opportunity = array(
-		'0'	=>	__( 'no' , 		'epl-jpi' ),	// No
-		'1'	=>	__( 'yes' , 		'epl-jpi' )		// Yes
+		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
+		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
 	);
 }
 
@@ -270,7 +352,7 @@ function epl_jpi_processing_development_opportunity() {
  * Jupix investmentOpportunity
  *
  * @package     EPL_JPI
- * @node		investmentOpportunity
+ * @node	investmentOpportunity
  * @post_type	property, commercial
  * @epl_meta	property_investment_opportunity * NEW
  * @subpackage  Processing Functions
@@ -278,8 +360,8 @@ function epl_jpi_processing_development_opportunity() {
  */
 function epl_jpi_processing_investment_opportunity() {
 	$investment_opportunity = array(
-		'0'	=>	__( 'no' , 		'epl-jpi' ),	// No
-		'1'	=>	__( 'yes' , 		'epl-jpi' )		// Yes
+		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
+		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
 	);
 }
 
@@ -294,8 +376,8 @@ function epl_jpi_processing_investment_opportunity() {
  */
 function epl_jpi_processing_estimated_rental_income() {
 	$estimated_rental_income = array(
-		'0'	=>	__( 'no' , 		'epl-jpi' ),	// No
-		'1'	=>	__( 'yes' , 		'epl-jpi' )		// Yes
+		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
+		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
 	);
 }
 
@@ -413,10 +495,10 @@ function epl_jpi_processing_rental_availability() {
  * The rent frequency of the property such as Per Calendar Month
  *
  * @package     EPL_JPI
- * @node		rentFrequency
+ * @node	rentFrequency
  * @post_type	rental
  * @epl_meta	property_rent_period
- * @filter		epl_opts_rent_period_filter
+ * @filter	epl_opts_rent_period_filter
  * @subpackage  Processing Functions
  * @since       1.0
  */
@@ -434,7 +516,7 @@ function epl_jpi_processing_rent_frequency() {
  * Will be equal to \911\92 this property has a let type of \91Student\92
  *
  * @package     EPL_JPI
- * @node		studentProperty
+ * @node	studentProperty
  * @post_type	rental
  * @epl_meta	property_student * NEW
  * @subpackage  Processing Functions
@@ -451,7 +533,7 @@ function epl_jpi_processing_rent_student() {
  * Jupix lettingFeePolicyHeadline
  *
  * @package     EPL_JPI
- * @node		lettingFeePolicyHeadline
+ * @node	lettingFeePolicyHeadline
  * @post_type	rental
  * @epl_meta	property_letting_fee_policy_headline * NEW
  * @subpackage  Processing Functions
@@ -465,7 +547,7 @@ function epl_jpi_processing_letting_fee_policy_heading() {
  * Jupix lettingFeePolicyDetails
  *
  * @package     EPL_JPI
- * @node		lettingFeePolicyDetails
+ * @node	lettingFeePolicyDetails
  * @post_type	rental
  * @epl_meta	opts_property_com_listing_type
  * @subpackage  Processing Functions
@@ -549,7 +631,7 @@ function epl_jpi_processing_agricultural_type() {
  * Is the property available as leasehold.
  *
  * @package     EPL_JPI
- * @node		toLet
+ * @node	toLet
  * @post_type	commercial
  * @epl_meta	property_com_to_let * NEW
  * @subpackage  Processing Functions
@@ -568,7 +650,7 @@ function epl_jpi_processing_com_to_let() {
  * The following fields apply to residential lettings properties only
  *
  * @package     EPL_JPI
- * @node		availability
+ * @node	availability
  * @post_type	commercial
  * @epl_meta	property_com_availability * NEW
  * @subpackage  Processing Functions
@@ -715,7 +797,7 @@ function epl_jpi_processing_com_floor_area_from() {
  * The units the floor area is measured in Values
  *
  * @package     EPL_JPI
- * @node		strapLine
+ * @node	strapLine
  * @post_type	commercial, rural
  * @epl_meta	property_com_further_options
  * @subpackage  Processing Functions
@@ -731,10 +813,10 @@ function epl_jpi_processing_com_strap_line() {
  * The multiple property types for this property. For example farms and grazing land Values: Please see the appendix
  *
  * @package     EPL_JPI
- * @node		propertyType
+ * @node	propertyType
  * @post_type	commercial
  * @epl_meta	property_commercial_category
- * @filter		epl_listing_load_meta_commercial_category
+ * @filter	epl_listing_load_meta_commercial_category
  * @subpackage  Processing Functions
  * @since       1.0
  */

@@ -44,7 +44,6 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 				if ( defined('EPL_RUNNING') ) {
 					self::$instance->setup_constants();
 					self::$instance->includes();
-					self::$instance->processing();
 				}
 			}
 			return self::$instance;
@@ -133,38 +132,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 				define( 'EPL_JPI_PLUGIN_PATH_INCLUDES', EPL_JPI_PLUGIN_PATH . 'includes/' );
 			}
 			
-			// Assets Directory Path
-			if ( ! defined( 'EPL_JPI_PLUGIN_PATH_ASSETS' ) ) {
-				define( 'EPL_JPI_PLUGIN_PATH_ASSETS', EPL_JPI_PLUGIN_PATH . 'assets/' );
-			}
-			
-			// Assets Directory URL
-			if ( ! defined( 'EPL_JPI_PLUGIN_URL_ASSETS' ) ) {
-				define( 'EPL_JPI_PLUGIN_URL_ASSETS', EPL_JPI_PLUGIN_URL . 'assets/' );
-			}
-			
-			// Images Directory Paths
-			if ( ! defined( 'EPL_JPI_PLUGIN_URL_IMAGES' ) ) {
-				define( 'EPL_JPI_PLUGIN_URL_IMAGES', EPL_JPI_PLUGIN_URL_ASSETS . 'images/' );
-			}
-			
-			// CSS Directory Paths
-			if ( ! defined( 'EPL_JPI_PLUGIN_URL_CSS' ) ) {
-				define( 'EPL_JPI_PLUGIN_URL_CSS', EPL_JPI_PLUGIN_URL_ASSETS . 'css/' );
-			}
-			
-			// JS Directory Paths
-			if ( ! defined( 'EPL_JPI_PLUGIN_URL_JS' ) ) {
-				define( 'EPL_JPI_PLUGIN_URL_JS', EPL_JPI_PLUGIN_URL_ASSETS . 'js/' );
-			}
-			
-		
-			global $wpdb;
-			
-			// Plugin DB Tables
-			if ( ! defined( 'EPL_JPI_LOGS_TABLE' ) ) {
-				define( 'EPL_JPI_LOGS_TABLE', $wpdb->prefix . 'EPL_JPI_logs' );
-			}
+
 		}
 		/*
 		 * Include required files
@@ -174,25 +142,13 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 * @return void
 		 */
 		private function includes() {
-			if( ! class_exists( 'EPL_License' ) ) {
-				require_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'EPL_License_Handler.php';
+			if ( is_admin() ) {
+				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0', 'Merv Barrett' );
 			}
-			$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0', 'Merv Barrett' );
-			
-			include_once( EPL_JPI_PLUGIN_PATH_ASSETS . 'assets.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php' );
-
-		}
-		
-		/*
-		 * Include required files
-		 *
-		 * @access private
-		 * @since 1.0
-		 * @return void
-		 */
-		public function processing() {
+			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'meta-boxes.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'functions.php' );
+
 		}
 		
 	}
