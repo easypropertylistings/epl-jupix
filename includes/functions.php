@@ -12,6 +12,26 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+/** Remove Meta Boxes **/
+
+function epl_unset_sections($group) {
+	return;
+}
+add_filter('epl_meta_groups_internal', 'epl_unset_sections');
+add_filter('epl_meta_groups_external', 'epl_unset_sections');
+add_filter('epl_meta_groups_heating_cooling', 'epl_unset_sections');
+
+/**
+ * Jupix forSalePOA & toLetPOA
+ *
+ * @package     EPL_JPI
+ * @node	forSalePOA
+ * @node	toLetPOA
+ * @post_type	property, rental, commercial
+ * @epl_meta	property_price_display
+ * @subpackage  Processing Functions
+ * @since       1.0
+ */
 function epl_jpi_property_price_display( ) {
 	// Jupix	=>	Easy Property Listings
 	$defaults = array(
@@ -66,6 +86,9 @@ add_filter( 'epl_opts_area_unit_filter' , 'epl_jpi_property_building_area_unit_f
  * @since       1.0
  */
 function epl_jpi_processing_flags() {
+	$flags = '';
+
+function epl_jpi_flags() {
 	$flags = '';
 
 	/*	<flags>
@@ -212,7 +235,7 @@ add_filter( 'epl_property_authority_filter' , 'epl_jpi_property_authority_filter
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_reception_rooms() {
+function epl_jpi_reception_rooms() {
 	$reception_rooms = ''; // Number
 }
 
@@ -228,7 +251,7 @@ function epl_jpi_processing_reception_rooms() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_kitchens() {
+function epl_jpi_kitchens() {
 	$property_kitchens = ''; // Number
 }
 
@@ -244,7 +267,7 @@ function epl_jpi_processing_kitchens() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_age() {
+function epl_jpi_age() {
 	$property_age = array(
 		'0'	=>	__( 'Not Specified' , 		'epl-jpi' ),
 		'1'	=>	__( 'New Build' , 		'epl-jpi' ),
@@ -272,11 +295,11 @@ function epl_jpi_processing_age() {
  * @node	priceQualifier
  * @post_type	property
  * @epl_meta	property_price_view
- * @usage	[epl_jpi_processing_price_qualifier({priceQualifier[1]},{price[1]})]
+ * @usage	[epl_jpi_price_qualifier({priceQualifier[1]},{price[1]})]
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_price_qualifier( $input = FALSE , $price = 0 ) {
+function epl_jpi_price_qualifier( $input = FALSE , $price = 0 ) {
 	$price_qualifier = array(
 		'1'	=>	__( 'Asking Price Of' , 	'epl-jpi' ),
 		'2'	=>	__( 'Fixed Price' , 		'epl-jpi' ),
@@ -307,7 +330,7 @@ function epl_jpi_processing_price_qualifier( $input = FALSE , $price = 0 ) {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_property_tenure() {
+function epl_jpi_property_tenure() {
 	$tenure = array(
 		'0'	=>	__( 'Not Specified' , 		'epl-jpi' ),
 		'1'	=>	__( 'Freehold' , 		'epl-jpi' ),
@@ -329,7 +352,7 @@ function epl_jpi_processing_property_tenure() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_development_opportunity() {
+function epl_jpi_development_opportunity() {
 	$development_opportunity = array(
 		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
 		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
@@ -346,7 +369,7 @@ function epl_jpi_processing_development_opportunity() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_investment_opportunity() {
+function epl_jpi_investment_opportunity() {
 	$investment_opportunity = array(
 		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
 		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
@@ -362,7 +385,7 @@ function epl_jpi_processing_investment_opportunity() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_estimated_rental_income() {
+function epl_jpi_estimated_rental_income() {
 	$estimated_rental_income = array(
 		'0'	=>	__( 'no' , 	'epl-jpi' ),	// No
 		'1'	=>	__( 'yes' , 	'epl-jpi' )	// Yes
@@ -382,15 +405,14 @@ function epl_jpi_processing_estimated_rental_income() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_property_type() {
-	$property_type = array(
-		'1'	=>	__( 'Houses' , 			'epl-jpi' ),
-		'2'	=>	__( 'Flats / Apartments' , 	'epl-jpi' ),
-		'3'	=>	__( 'Bungalows' , 		'epl-jpi' ),
-		'4'	=>	__( 'Other' , 			'epl-jpi' )
-	);
-}
+function epl_jpi_property_type_filter() {
 
+	$sep = '- ';
+
+	$defaults = array(
+		'1'	=>	__( 'Houses' , 			'epl-jpi' ),
+
+<<<<<<< HEAD
 /**
  * Jupix propertyStyle
  *
@@ -446,8 +468,56 @@ function epl_jpi_processing_property_style() {
 		33 4 Unconverted Barn
 
 		*/
+=======
+		'1-1'	=>	$sep . __( 'Barn Conversion' , 'epl-jpi' ),
+		'2-1'	=>	$sep . __( 'Cottage' , 'epl-jpi' ),
+		'3-1'	=>	$sep . __( 'Chalet' , 'epl-jpi' ),
+		'4-1'	=>	$sep . __( 'Detached House' , 'epl-jpi' ),
+		'5-1'	=>	$sep . __( 'Semi-Detached House' , 'epl-jpi' ),
+		'28-1'	=>	$sep . __( 'Link Detached' , 'epl-jpi' ),
+		'6-1'	=>	$sep . __( 'Farm House' , 'epl-jpi' ),
+		'7-1'	=>	$sep . __( 'Manor House' , 'epl-jpi' ),
+		'8-1'	=>	$sep . __( 'Mews' , 'epl-jpi' ),
+		'9-1'	=>	$sep . __( 'Mid Terraced House' , 'epl-jpi' ),
+		'10-1'	=>	$sep . __( 'End Terraced House' , 'epl-jpi' ),
+		'11-1'	=>	$sep . __( 'Town House' , 'epl-jpi' ),
+		'12-1'	=>	$sep . __( 'Villa' , 'epl-jpi' ),
+		'29-1'	=>	$sep . __( 'Shared House' , 'epl-jpi' ),
+		'31-1'	=>	$sep . __( 'Sheltered Housing' , 'epl-jpi' ),
 
+
+		'2'	=>	__( 'Flats / Apartments' , 	'epl-jpi' ),
+
+		'13-2'	=>	$sep . __( 'Apartment' , 'epl-jpi' ),
+		'14-2'	=>	$sep . __( 'Bedsit' , 'epl-jpi' ),
+		'15-2'	=>	$sep . __( 'Ground Floor Flat' , 'epl-jpi' ),
+		'16-2'	=>	$sep . __( 'Flat' , 'epl-jpi' ),
+		'17-2'	=>	$sep . __( 'Ground Floor Maisonette' , 'epl-jpi' ),
+		'18-2'	=>	$sep . __( 'Maisonette' , 'epl-jpi' ),
+		'19-2'	=>	$sep . __( 'Penthouse' , 'epl-jpi' ),
+		'20-2'	=>	$sep . __( 'Studio' , 'epl-jpi' ),
+		'30-2'	=>	$sep . __( 'Shared Flat' , 'epl-jpi' ),
+
+
+		'3'	=>	__( 'Bungalows' , 		'epl-jpi' ),
+		'21-3'	=>	$sep . __( 'Detached Bungalow' , 'epl-jpi' ),
+		'35-3'	=>	$sep . __( 'End Terraced Bungalow' , 'epl-jpi' ),
+		'34-3'	=>	$sep . __( 'Mid Terraced Bungalow' , 'epl-jpi' ),
+		'22-3'	=>	$sep . __( 'Semi-Detached Bungalow' , 'epl-jpi' ),
+
+		'4'	=>	__( 'Other' , 			'epl-jpi' ),
+		'23-4'	=>	$sep . __( 'Building Plot / Land' , 'epl-jpi' ),
+		'24-4'	=>	$sep . __( 'Garage' , 'epl-jpi' ),
+		'25-4'	=>	$sep . __( 'House Boat' , 'epl-jpi' ),
+		'26-4'	=>	$sep . __( 'Mobile Home' , 'epl-jpi' ),
+		'27-4'	=>	$sep . __( 'Parking' , 'epl-jpi' ),
+		'32-4'	=>	$sep . __( 'Equestrian' , 'epl-jpi' ),
+		'33-4'	=>	$sep . __( 'Unconverted Barn' , 'epl-jpi' )
+	);
+	return $defaults;
 }
+add_filter( 'epl_listing_meta_property_category' , 'epl_jpi_property_type_filter' );
+
 
 /**
  **********************************************
@@ -466,7 +536,7 @@ function epl_jpi_processing_property_style() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_rental_availability() {
+function epl_jpi_rental_availability() {
 	$availability = array(
 		'1'	=>	__( 'On Hold' , 		'epl-jpi' ),
 		'2'	=>	__( 'To Let' , 			'epl-jpi' ),
@@ -490,7 +560,7 @@ function epl_jpi_processing_rental_availability() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_rent_frequency() {
+function epl_jpi_rent_frequency() {
 	$rent_frequency = array(
 		'1'	=>	__( 'pcm' , 			'epl-jpi' ),
 		'2'	=>	__( 'pw' , 			'epl-jpi' ),
@@ -501,7 +571,7 @@ function epl_jpi_processing_rent_frequency() {
 /**
  * Jupix studentProperty
  *
- * Will be equal to \911\92 this property has a let type of \91Student\92
+ * Will be equal to 1 this property has a let type of Student
  *
  * @package     EPL_JPI
  * @node	studentProperty
@@ -510,7 +580,7 @@ function epl_jpi_processing_rent_frequency() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_rent_student() {
+function epl_jpi_rent_student() {
 	$student_property = array(
 		'0'	=>	__( 'no' , 		'epl-jpi' ),
 		'1'	=>	__( 'yes' , 		'epl-jpi' )
@@ -527,7 +597,7 @@ function epl_jpi_processing_rent_student() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_letting_fee_policy_heading() {
+function epl_jpi_letting_fee_policy_heading() {
 	$letting_fee_policy_heading = ''; // String
 }
 
@@ -537,11 +607,11 @@ function epl_jpi_processing_letting_fee_policy_heading() {
  * @package     EPL_JPI
  * @node	lettingFeePolicyDetails
  * @post_type	rental
- * @epl_meta	opts_property_com_listing_type
+ * @epl_meta	property_letting_fee_policy_details * NEW
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_letting_fee_policy_details() {
+function epl_jpi_letting_fee_policy_details() {
 	$letting_fee_policy_details = ''; // String
 }
 
@@ -560,7 +630,12 @@ function epl_jpi_processing_letting_fee_policy_details() {
  * @subpackage  Processing Functions
  * @since       1.0
 
+
 function epl_jpi_processing_price_qualifier() {
+
+
+function epl_jpi_price_qualifier() {
+
 	$price_qualifier = array(
 		'1'	=>	__( 'Asking Price Of' , 	'epl-jpi' ),
 		'2'	=>	__( 'Fixed Price' , 		'epl-jpi' ),
@@ -585,8 +660,8 @@ function epl_jpi_processing_price_qualifier() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_agricultural_type() {
-	$property_type = array(
+function epl_jpi_agricultural_type_filter() {
+	$defaults = array(
 		'1'	=>	__( 'Residential Farm' , 	'epl-jpi' ),
 		'2'	=>	__( 'Commercial Farm' , 	'epl-jpi' ),
 		'3'	=>	__( 'Poultry Farm' , 		'epl-jpi' ),
@@ -606,7 +681,9 @@ function epl_jpi_processing_agricultural_type() {
 		'17'	=>	__( 'Residential Land' , 	'epl-jpi' ),
 		'18'	=>	__( 'Commercial / Industrial' , 'epl-jpi' )
 	);
+	return $defaults;
 }
+add_filter( 'epl_listing_meta_rural_category' , 'epl_jpi_agricultural_type_filter' );
 
 /**
  **********************************************
@@ -625,7 +702,7 @@ function epl_jpi_processing_agricultural_type() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_to_let() {
+function epl_jpi_com_to_let() {
 	$com_to_let = array(
 		'0'	=>	__( 'no' , 		'epl-jpi' ),
 		'1'	=>	__( 'yes' , 		'epl-jpi' )
@@ -644,7 +721,7 @@ function epl_jpi_processing_com_to_let() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_availability() {
+function epl_jpi_com_availability() {
 	$com_availability = array(
 		'1'	=>	__( 'On Hold' , 		'epl-jpi' ),
 		'2'	=>	__( 'For Sale' , 		'epl-jpi' ),
@@ -667,13 +744,13 @@ function epl_jpi_processing_com_availability() {
  * that do not have a range priceFrom will be 0 and only priceTo will be specified
  *
  * @package     EPL_JPI
- * @node		priceFrom
+ * @node	priceFrom
  * @post_type	commercial
  * @epl_meta	property_com_price_from * NEW
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_price_from() {
+function epl_jpi_com_price_from() {
 	$com_price_from = ''; // Integer
 }
 
@@ -683,13 +760,13 @@ function epl_jpi_processing_com_price_from() {
  * The frequency of the rent specified for example PA Values
  *
  * @package     EPL_JPI
- * @node		rentFrequency
+ * @node	rentFrequency
  * @post_type	commercial
  * @epl_meta	property_com_rent_frequency * NEW
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_rent_frequency() {
+function epl_jpi_com_rent_frequency() {
 	$com_rent_frequency = ''; // String
 
 	/**
@@ -718,7 +795,7 @@ function epl_jpi_processing_com_rent_frequency() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_tenure() {
+function epl_jpi_com_tenure() {
 	$com_tenure = ''; // String
 }
 
@@ -735,7 +812,7 @@ function epl_jpi_processing_com_tenure() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_sale_by() {
+function epl_jpi_com_sale_by() {
 	$com_sale_by = array(
 		'0'	=>	__( 'Not Specified' , 		'epl-jpi' ),
 		'1'	=>	__( 'Private Treaty' , 		'epl-jpi' ),
@@ -758,7 +835,7 @@ function epl_jpi_processing_com_sale_by() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_floor_area_to() {
+function epl_jpi_com_floor_area_to() {
 	$com_floor_area_to = ''; // number
 }
 
@@ -775,7 +852,7 @@ function epl_jpi_processing_com_floor_area_to() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_floor_area_from() {
+function epl_jpi_com_floor_area_from() {
 	$com_floor_area_from = ''; // number
 }
 
@@ -791,7 +868,7 @@ function epl_jpi_processing_com_floor_area_from() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_strap_line() {
+function epl_jpi_com_strap_line() {
 	$com_strap_line = ''; // String
 }
 
@@ -808,8 +885,8 @@ function epl_jpi_processing_com_strap_line() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_com_property_type() {
-	$com_type = array(
+function epl_jpi_com_property_type_filter() {
+	$defaults = array(
 		'1'	=>	__( 'Offices' , 			'epl-jpi' ),
 		'2'	=>	__( 'Serviced Offices' , 		'epl-jpi' ),
 		'3'	=>	__( 'Business Park' , 			'epl-jpi' ),
@@ -851,4 +928,6 @@ function epl_jpi_processing_com_property_type() {
 		'39'	=>	__( 'Commercial' , 			'epl-jpi' ),
 		'40'	=>	__( 'Ground Leases' , 			'epl-jpi' )
 	);
+	return $defaults;
 }
+add_filter( 'epl_listing_meta_commercial_category' , 'epl_jpi_com_property_type_filter' );
