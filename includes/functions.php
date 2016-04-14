@@ -1,6 +1,6 @@
 <?php
 /**
- * JUPIX Functions and Setup EPL for JUPIX format
+ * JUPIX Functions and Setup EPL for JUPIX format 
  *
  * @package     EPL_JPI
  * @subpackage  Processing Functions
@@ -12,6 +12,9 @@
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
+
+
+
 /** Remove Meta Boxes **/
 
 function epl_unset_sections($group) {
@@ -20,6 +23,10 @@ function epl_unset_sections($group) {
 add_filter('epl_meta_groups_internal', 'epl_unset_sections');
 add_filter('epl_meta_groups_external', 'epl_unset_sections');
 add_filter('epl_meta_groups_heating_cooling', 'epl_unset_sections');
+
+
+
+
 
 /**
  * Jupix forSalePOA & toLetPOA
@@ -85,12 +92,9 @@ add_filter( 'epl_opts_area_unit_filter' , 'epl_jpi_property_building_area_unit_f
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_processing_flags() {
-	$flags = '';
-
 function epl_jpi_flags() {
-	$flags = '';
-
+	$flags = ''; 
+	
 	/*	<flags>
 			<flag>New Instruction</flag>
 			<flag>Price Reduction</flag>
@@ -102,7 +106,7 @@ function epl_jpi_flags() {
  ***********************
  * Residential and Rural
  */
-
+ 
 /**
  * Jupix availability
  *
@@ -115,7 +119,7 @@ function epl_jpi_flags() {
  * @subpackage  Processing Functions
  * @since       1.0
  */
-
+ 
 function epl_jpi_property_status( ) {
 	$jupix_defaults = array(
 		'1'	=>	__( 'On Hold' , 	'epl-jpi' ),
@@ -155,7 +159,7 @@ function epl_jpi_property_status_filter() {
 		),
 		'sold_stc'		=>	array(			// 4
 			'label'		=>	__('Sold STC', 'epl'),
-			'exclude'	=>	array('rental')
+			'exclude'	=>	array('rental')		
 		),
 		'leased'		=>	array(
 			'label'		=>	__('Leased', 'epl'),
@@ -185,7 +189,7 @@ function epl_jpi_property_authority() {
 		'4'	=>	__( 'By Tender' , 	'epl-jpi' ),
 		'5'	=>	__( 'Offers Invited' , 	'epl-jpi' )
 	);
-
+	
 	$defaults = array(
 		'0'	=>	'open',
 		'1'	=>	'exclusive',
@@ -238,7 +242,7 @@ add_filter( 'epl_property_authority_filter' , 'epl_jpi_property_authority_filter
 function epl_jpi_reception_rooms() {
 	$reception_rooms = ''; // Number
 }
-
+ 
 /**
  * Jupix propertyKitchens
  *
@@ -320,7 +324,7 @@ function epl_jpi_price_qualifier( $input = FALSE , $price = 0 ) {
 /**
  * Jupix propertyTenure
  *
- * Property tenure. Indicates the tenure of the property.
+ * Property tenure. Indicates the tenure of the property. 
  * It is a numeric value which corresponds to the lookups below.
  *
  * @package     EPL_JPI
@@ -408,67 +412,10 @@ function epl_jpi_estimated_rental_income() {
 function epl_jpi_property_type_filter() {
 
 	$sep = '- ';
-
+	
 	$defaults = array(
 		'1'	=>	__( 'Houses' , 			'epl-jpi' ),
 
-<<<<<<< HEAD
-/**
- * Jupix propertyStyle
- *
- * The number of reception rooms
- *
- * @package     EPL_JPI
- * @node	propertyStyle
- * @post_type	property, rental
- * @epl_meta	property_category_style * NEW
- * @subpackage  Processing Functions
- * @since       1.0
- */
-function epl_jpi_processing_property_style() {
-	$property_style = array();
-		/*
-		1 1 Barn Conversion
-		2 1 Cottage
-		3 1 Chalet
-		4 1 Detached House
-		5 1 Semi-Detached House
-		28 1 Link Detached
-		6 1 Farm House
-		7 1 Manor House
-		8 1 Mews
-		9 1 Mid Terraced House
-		10 1 End Terraced House
-		11 1 Town House
-		12 1 Villa
-		29 1 Shared House
-		31 1 Sheltered Housing
-
-		13 2 Apartment
-		14 2 Bedsit
-		15 2 Ground Floor Flat
-		16 2 Flat
-		17 2 Ground Floor Maisonette
-		18 2 Maisonette
-		19 2 Penthouse
-		20 2 Studio
-		30 2 Shared Flat
-
-		21 3 Detached Bungalow
-		35 3 End Terraced Bungalow
-		34 3 Mid Terraced Bungalow
-		22 3 Semi-Detached Bungalow
-
-		23 4 Building Plot / Land
-		24 4 Garage
-		25 4 House Boat
-		26 4 Mobile Home
-		27 4 Parking
-		32 4 Equestrian
-		33 4 Unconverted Barn
-
-		*/
-=======
 		'1-1'	=>	$sep . __( 'Barn Conversion' , 'epl-jpi' ),
 		'2-1'	=>	$sep . __( 'Cottage' , 'epl-jpi' ),
 		'3-1'	=>	$sep . __( 'Chalet' , 'epl-jpi' ),
@@ -484,8 +431,8 @@ function epl_jpi_processing_property_style() {
 		'12-1'	=>	$sep . __( 'Villa' , 'epl-jpi' ),
 		'29-1'	=>	$sep . __( 'Shared House' , 'epl-jpi' ),
 		'31-1'	=>	$sep . __( 'Sheltered Housing' , 'epl-jpi' ),
-
-
+		
+		
 		'2'	=>	__( 'Flats / Apartments' , 	'epl-jpi' ),
 
 		'13-2'	=>	$sep . __( 'Apartment' , 'epl-jpi' ),
@@ -497,14 +444,14 @@ function epl_jpi_processing_property_style() {
 		'19-2'	=>	$sep . __( 'Penthouse' , 'epl-jpi' ),
 		'20-2'	=>	$sep . __( 'Studio' , 'epl-jpi' ),
 		'30-2'	=>	$sep . __( 'Shared Flat' , 'epl-jpi' ),
-
-
+		
+		
 		'3'	=>	__( 'Bungalows' , 		'epl-jpi' ),
 		'21-3'	=>	$sep . __( 'Detached Bungalow' , 'epl-jpi' ),
 		'35-3'	=>	$sep . __( 'End Terraced Bungalow' , 'epl-jpi' ),
 		'34-3'	=>	$sep . __( 'Mid Terraced Bungalow' , 'epl-jpi' ),
 		'22-3'	=>	$sep . __( 'Semi-Detached Bungalow' , 'epl-jpi' ),
-
+		
 		'4'	=>	__( 'Other' , 			'epl-jpi' ),
 		'23-4'	=>	$sep . __( 'Building Plot / Land' , 'epl-jpi' ),
 		'24-4'	=>	$sep . __( 'Garage' , 'epl-jpi' ),
@@ -513,6 +460,7 @@ function epl_jpi_processing_property_style() {
 		'27-4'	=>	$sep . __( 'Parking' , 'epl-jpi' ),
 		'32-4'	=>	$sep . __( 'Equestrian' , 'epl-jpi' ),
 		'33-4'	=>	$sep . __( 'Unconverted Barn' , 'epl-jpi' )
+
 	);
 	return $defaults;
 }
@@ -523,7 +471,7 @@ add_filter( 'epl_listing_meta_property_category' , 'epl_jpi_property_type_filter
  **********************************************
  * Residential Lettings Specific Fields
  */
-
+ 
 /**
  * Jupix availability
  *
@@ -629,13 +577,8 @@ function epl_jpi_letting_fee_policy_details() {
  * @epl_meta	property_price_view
  * @subpackage  Processing Functions
  * @since       1.0
-
-
-function epl_jpi_processing_price_qualifier() {
-
-
+ 
 function epl_jpi_price_qualifier() {
-
 	$price_qualifier = array(
 		'1'	=>	__( 'Asking Price Of' , 	'epl-jpi' ),
 		'2'	=>	__( 'Fixed Price' , 		'epl-jpi' ),
@@ -689,7 +632,7 @@ add_filter( 'epl_listing_meta_rural_category' , 'epl_jpi_agricultural_type_filte
  **********************************************
  * Commercial Specific Fields
  */
-
+ 
  /**
  * Jupix toLet
  *
@@ -740,7 +683,7 @@ function epl_jpi_com_availability() {
 /**
  * Jupix priceFrom
  *
- * The price from of the property in pounds EG 150000 to 450000. Note for properties
+ * The price from of the property in pounds EG 150000 to 450000. Note for properties 
  * that do not have a range priceFrom will be 0 and only priceTo will be specified
  *
  * @package     EPL_JPI
@@ -768,7 +711,7 @@ function epl_jpi_com_price_from() {
  */
 function epl_jpi_com_rent_frequency() {
 	$com_rent_frequency = ''; // String
-
+	
 	/**
 	* String Freehold or Long Leasehold
 	* pa
@@ -842,7 +785,7 @@ function epl_jpi_com_floor_area_to() {
 /**
  * Jupix floorAreaFrom
  *
- * The minimum floor area available. Note for properties that do not
+ * The minimum floor area available. Note for properties that do not 
  * have a range floorAreaFrom will be 0 and only floorArea will be specified
  *
  * @package     EPL_JPI
