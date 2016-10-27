@@ -2,12 +2,12 @@
 /*
  * Plugin Name: Easy Property Listings - Jupix Integration
  * Plugin URL: http://easypropertylistings.com.au/extension/staff-directory
- * Description: 
- * Version: 1.0
+ * Description:
+ * Version: 1.0.1
  * Author: Merv Barrett
  * Author URI: http://www.realestateconnected.com.au
  */
- 
+
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 if ( ! class_exists( 'EPL_Jupix' ) ) :
@@ -17,13 +17,13 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 	 * @since 1.0
 	 */
 	final class EPL_Jupix {
-		
+
 		/*
 		 * @var EPL_Jupix The one true EPL_Jupix
 		 * @since 1.0
 		 */
 		private static $instance;
-	
+
 		/*
 		 * Main EPL_Jupix Instance
 		 *
@@ -48,7 +48,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 			}
 			return self::$instance;
 		}
-		
+
 		/**
 		 * Setup the default hooks and actions
 		 *
@@ -60,7 +60,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 			// activation
 			add_action( 'admin_init', array( $this, 'activation' ) );
 		}
-		
+
 		/**
 		 * Activation function fires when the plugin is activated.
 		 * @since 1.0
@@ -79,7 +79,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 				}
 			}
 		}
-		
+
 		/**
 		 * Admin notices
 		 *
@@ -93,7 +93,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 				echo '</p></div>';
 			}
 		}
-		
+
 		/*
 		 * Setup plugin constants
 		 *
@@ -101,37 +101,37 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 * @since 1.0
 		 * @return void
 		 */
-		private function setup_constants() {		
+		private function setup_constants() {
 			// API URL
 			if ( ! defined( 'EPL_TEMPLATES' ) ) {
 				define( 'EPL_TEMPLATES', 'http://easypropertylistings.com.au' );
 			}
-			
+
 			// Extension name on API server
 			if ( ! defined( 'EPL_JPI_PRODUCT_NAME' ) ) {
 				define( 'EPL_JPI_PRODUCT_NAME', 'Jupix Integration' );
 			}
-			
+
 			// Plugin File
 			if ( ! defined( 'EPL_JPI_PLUGIN_FILE' ) ) {
 				define( 'EPL_JPI_PLUGIN_FILE', __FILE__ );
 			}
-			
+
 			// Plugin Folder URL
 			if ( ! defined( 'EPL_JPI_PLUGIN_URL' ) ) {
 				define( 'EPL_JPI_PLUGIN_URL', plugin_dir_url( __FILE__ ) );
 			}
-			
+
 			// Plugin Folder Path
 			if ( ! defined( 'EPL_JPI_PLUGIN_PATH' ) ) {
 				define( 'EPL_JPI_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
 			}
-			
+
 			// Plugin Sub-Directory Paths
 			if ( ! defined( 'EPL_JPI_PLUGIN_PATH_INCLUDES' ) ) {
 				define( 'EPL_JPI_PLUGIN_PATH_INCLUDES', EPL_JPI_PLUGIN_PATH . 'includes/' );
 			}
-			
+
 
 		}
 		/*
@@ -143,14 +143,14 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 */
 		private function includes() {
 			if ( is_admin() ) {
-				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0', 'Merv Barrett' );
+				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0.1', 'Merv Barrett' );
 			}
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'meta-boxes.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'functions.php' );
 
 		}
-		
+
 	}
 endif; // End if class_exists check
 
