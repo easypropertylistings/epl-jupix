@@ -142,8 +142,18 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 * @return void
 		 */
 		private function includes() {
+
+			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'import-processing-functions.php' );
+
+
+
 			if ( is_admin() ) {
 				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0.1', 'Merv Barrett' );
+
+				include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'admin-functions.php' );
+			} else {
+				include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'template-functions.php' );
+
 			}
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php' );
 			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'meta-boxes.php' );

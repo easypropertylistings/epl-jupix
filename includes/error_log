@@ -1,0 +1,13 @@
+[22-May-2017 21:00:44 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 12
+[22-May-2017 21:01:03 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 12
+[22-May-2017 21:03:03 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 19
+[22-May-2017 21:03:29 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 18
+[22-May-2017 21:03:47 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 18
+[22-May-2017 21:04:09 Australia/Perth] PHP Parse error:  syntax error, unexpected '!' in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 21
+[22-May-2017 21:05:35 Australia/Perth] PHP Notice:  Undefined variable: priceQualifier in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 38
+[22-May-2017 21:05:35 Australia/Perth] PHP Notice:  Undefined index:  in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 38
+[22-May-2017 21:11:31 Australia/Perth] PHP Fatal error:  Uncaught Error: Call to undefined function epl_currency_formatted_amount() in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php:38
+Stack trace:
+#0 /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php(47): epl_jupix_import_price_qualifier(5, 600000)
+#1 {main}
+  thrown in /home/connecte/public_html/epl/imports/jupix/wp-content/plugins/epl-jupix/includes/testing.php on line 38
