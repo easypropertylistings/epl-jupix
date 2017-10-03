@@ -103,23 +103,31 @@ function epl_jupix_property_rental_availability_price_prefix( $price ) {
 
 	global $property;
 
-	$availability = $property->get_property_meta('property_rental_availability');
+	if ( function_exists( 'is_epl_rental_post' ) ) {
 
-	if ( $availability == '5' || $availability == '1' ) {
-		return $price;
+		if ( ! is_epl_rental_post() ) {
+			return $price;
+		}
+
+		$availability = $property->get_property_meta('property_rental_availability');
+
+		if ( $availability == '5' || $availability == '1' ) {
+			return $price;
+		}
+
+
+		$availability_options = array(
+			'1'	=>	__( 'On Hold' , 		'epl-jupix' ),
+			'2'	=>	__( 'To Let' , 			'epl-jupix' ),
+			'3'	=>	__( 'References Pending' , 	'epl-jupix' ),
+			'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ),
+			'5'	=>	__( 'Let' , 			'epl-jupix' ),
+			'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ),
+		);
+
+		$avail_text = $availability_options[$availability];
+
 	}
-
-
-	$availability_options = array(
-		'1'	=>	__( 'On Hold' , 		'epl-jupix' ),
-		'2'	=>	__( 'To Let' , 			'epl-jupix' ),
-		'3'	=>	__( 'References Pending' , 	'epl-jupix' ),
-		'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ),
-		'5'	=>	__( 'Let' , 			'epl-jupix' ),
-		'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ),
-	);
-
-	$avail_text = $availability_options[$availability];
 
 
 	return '<span class="epl-jupix-rental-availability">' . $avail_text . '</span> ' . $price;
