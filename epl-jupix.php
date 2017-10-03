@@ -1,9 +1,9 @@
 <?php
 /*
  * Plugin Name: Easy Property Listings - Jupix Integration
- * Plugin URL: http://easypropertylistings.com.au/extension/staff-directory
- * Description:
- * Version: 1.0.1
+ * Plugin URL: https://easypropertylistings.com.au/extension/jupix
+ * Description: Alter Easy Property Listings for the Jupix format.
+ * Version: 2.0.0
  * Author: Merv Barrett
  * Author URI: http://www.realestateconnected.com.au
  */
@@ -104,7 +104,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		private function setup_constants() {
 			// API URL
 			if ( ! defined( 'EPL_TEMPLATES' ) ) {
-				define( 'EPL_TEMPLATES', 'http://easypropertylistings.com.au' );
+				define( 'EPL_TEMPLATES', 'https://easypropertylistings.com.au' );
 			}
 
 			// Extension name on API server
@@ -148,7 +148,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 
 
 			if ( is_admin() ) {
-				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '1.0.1', 'Merv Barrett' );
+				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '2.0.0', 'Merv Barrett' );
 
 				include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'admin-functions.php' );
 			} else {

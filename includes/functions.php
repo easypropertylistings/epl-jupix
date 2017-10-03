@@ -72,7 +72,7 @@ add_filter( 'epl_get_price' , 'epl_jupix_sold_stc_price' );
  *
  * House Category Filter
  *
- * @import	{propertyStyle[1]}-{propertyType[1]}
+ * @import	{propertyType[1]}-{propertyStyle[1]}
  * @package     EPL_JUPIX
  * @node	propertyType
  * @post_type	property, rental
@@ -80,7 +80,7 @@ add_filter( 'epl_get_price' , 'epl_jupix_sold_stc_price' );
  * @subpackage  Processing Functions
  * @since       1.0
  */
-function epl_jpi_property_type_filter() {
+function epl_jpi_property_type_filter_old() {
 
 	$sep = '- ';
 
@@ -135,7 +135,73 @@ function epl_jpi_property_type_filter() {
 	);
 	return $defaults;
 }
-add_filter( 'epl_listing_meta_property_category' , 'epl_jpi_property_type_filter' );
+//add_filter( 'epl_listing_meta_property_category' , 'epl_jpi_property_type_filter_old' );
+
+
+/**
+ * Jupix propertyType
+ *
+ * House Category Filter
+ *
+ * @import	{propertyType[1]}-{propertyStyle[1]}
+ * @package     EPL_JUPIX
+ * @node	propertyType
+ * @post_type	property, rental
+ * @epl_meta	property_category
+ * @subpackage  Processing Functions
+ * @since       1.0
+ */
+function epl_jpi_property_style_filter() {
+
+	$defaults = array(
+		//'1'	=>	__( 'Houses' , 				'epl-jupix' ),
+		'1'	=>	__( 'Barn Conversion' , 	'epl-jupix' ),
+		'2'	=>	__( 'Cottage' ,			'epl-jupix' ),
+		'3'	=>	__( 'Chalet' , 			'epl-jupix' ),
+		'4'	=>	__( 'Detached House' , 		'epl-jupix' ),
+		'5'	=>	__( 'Semi-Detached House' , 	'epl-jupix' ),
+		'6'	=>	__( 'Farm House' , 		'epl-jupix' ),
+		'7'	=>	__( 'Manor House' , 		'epl-jupix' ),
+		'8'	=>	__( 'Mews' , 			'epl-jupix' ),
+		'9'	=>	__( 'Mid Terraced House' , 	'epl-jupix' ),
+		'10'	=>	__( 'End Terraced House' , 	'epl-jupix' ),
+		'11'	=>	__( 'Town House' , 		'epl-jupix' ),
+		'12'	=>	__( 'Villa' , 			'epl-jupix' ),
+		'28'	=>	__( 'Link Detached' , 		'epl-jupix' ),
+		'29'	=>	__( 'Shared House' , 		'epl-jupix' ),
+		'31'	=>	__( 'Sheltered Housing' , 	'epl-jupix' ),
+
+		//'2'	=>	__( 'Flats / Apartments' , 		'epl-jupix' ),
+		'13'	=>	__( 'Apartment' , 		'epl-jupix' ),
+		'14'	=>	__( 'Bedsit' , 			'epl-jupix' ),
+		'15'	=>	__( 'Ground Floor Flat' , 	'epl-jupix' ),
+		'16'	=>	__( 'Flat' , 			'epl-jupix' ),
+		'17'	=>	__( 'Ground Floor Maisonette' , 'epl-jupix' ),
+		'18'	=>	__( 'Maisonette' , 		'epl-jupix' ),
+		'19'	=>	__( 'Penthouse' , 		'epl-jupix' ),
+		'20'	=>	__( 'Studio' , 			'epl-jupix' ),
+		'30'	=>	__( 'Shared Flat' , 		'epl-jupix' ),
+
+		//'3'	=>	__( 'Bungalows' , 			'epl-jupix' ),
+		'21'	=>	__( 'Detached Bungalow' , 	'epl-jupix' ),
+		'22'	=>	__( 'Semi-Detached Bungalow' , 	'epl-jupix' ),
+		'35'	=>	__( 'End Terraced Bungalow' , 	'epl-jupix' ),
+		'34'	=>	__( 'Mid Terraced Bungalow' , 	'epl-jupix' ),
+
+		//'4'	=>	__( 'Other' , 				'epl-jupix' ),
+		'23'	=>	__( 'Building Plot / Land' , 	'epl-jupix' ),
+		'24'	=>	__( 'Garage' , 			'epl-jupix' ),
+		'25'	=>	__( 'House Boat' , 		'epl-jupix' ),
+		'26'	=>	__( 'Mobile Home' , 		'epl-jupix' ),
+		'27'	=>	__( 'Parking' , 		'epl-jupix' ),
+		'32'	=>	__( 'Equestrian' , 		'epl-jupix' ),
+		'33'	=>	__( 'Unconverted Barn' , 	'epl-jupix' )
+
+	);
+	return $defaults;
+}
+add_filter( 'epl_listing_meta_property_category' , 'epl_jpi_property_style_filter' );
+
 
 
 /**
@@ -191,3 +257,74 @@ function epl_jpi_com_sale_by() {
 	return $sale_by;
 }
 add_filter( 'epl_property_authority_filter' , 'epl_jpi_com_sale_by' );
+
+
+
+/**
+ * Add a property Type checkbox option to the EPL - Listing Search Widget
+ */
+function epl_jupix_search_widget_fields_property_type( $fields ) {
+	$fields[] = array(
+			'key'			=>	'search_property_type',
+			'label'			=>	__('Property Type','epl-jupix'),
+			'default'		=>	'off', // Set to on to automatically output in the shortcode
+			'type'			=>	'checkbox',
+	);
+	return $fields;
+}
+add_filter('epl_search_widget_fields', 'epl_jupix_search_widget_fields_property_type');
+
+/**
+ * Add the Property Type select field to the [listing_search] shorcode
+ * Usage will be [listing_search post_type="property" search_open_closed=on]
+ *
+ **/
+function epl_jupix_search_field_property_type($fields) {
+ 	$fields[] =array(
+ 		'key'			=>	'search_property_type',
+ 		'meta_key'		=>	'property_type',
+ 		'label'			=>	__('Property Type','epl-jupix'),
+ 		'option_filter'		=>	'option_property_type',
+ 		'options'		=>	array(
+				'1'		=>	__('Houses', 			'epl-jupix' ),
+				'2'		=>	__('Flats / Apartments', 	'epl-jupix' ),
+				'3'		=>	__('Bungalows', 		'epl-jupix' ),
+				'4'		=>	__('Other', 			'epl-jupix' ),
+		),
+		'type'			=>	'select',
+ 		//'exclude'		=>	array('land','commercial','commercial_land','business'),
+		'query'			=>	array(
+							'query'		=>	'meta',
+						),
+		'class'			=>	'epl-search-row-full',
+		'order'			=>	85
+ 	);
+ 	return $fields;
+}
+add_filter('epl_search_widget_fields_frontend','epl_jupix_search_field_property_type');
+
+
+/**
+ * Rename External Link 1 to Brochure
+ */
+function epl_jupix_property_external_link($field) {
+
+	$field['label'] = __('Brochure','epl-jupix');
+
+	return $field;
+
+}
+add_filter('epl_meta_property_external_link','epl_jupix_property_external_link');
+
+
+/**
+ * Rename External Link 2 to Virtual Tour
+ */
+ function epl_jupix_property_external_link_2($field) {
+
+	$field['label'] = __('Virtual Tour','epl-jupix');
+
+	return $field;
+
+}
+add_filter('epl_meta_property_external_link_2','epl_jupix_property_external_link_2');
