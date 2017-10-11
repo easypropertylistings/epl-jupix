@@ -97,12 +97,12 @@ function epl_jupix_add_property_rental_availability_field( $group ) {
 		'label'		=>	__('Rental Availablilty', 'epl-jupix' ),
 		'type'		=>	'select',
 		'opts'		=>	array(
-			'1'	=>	__( 'On Hold' , 		'epl-jupix' ),
-			'2'	=>	__( 'To Let' , 			'epl-jupix' ),
-			'3'	=>	__( 'References Pending' , 	'epl-jupix' ),
-			'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ),
-			'5'	=>	__( 'Let' , 			'epl-jupix' ),
-			'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ),
+			'1'	=>	__( 'On Hold' , 		'epl-jupix' ), // OffMarket
+			'2'	=>	__( 'To Let' , 			'epl-jupix' ), // Current
+			'3'	=>	__( 'References Pending' , 	'epl-jupix' ), // Under Offer
+			'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ), // Leased
+			'5'	=>	__( 'Let' , 			'epl-jupix' ), // Current
+			'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ), // Current
 		)
 	);
 

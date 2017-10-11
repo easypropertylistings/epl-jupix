@@ -20,6 +20,11 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  */
 function epl_jupix_sold_stc_price_plain_value( $price_plain_value ) {
 
+	global $property;
+
+	if( in_array($property->post_type, array('rental') ) )
+		return $price_plain_value;
+
 	$array = array(
 		'1' => 'On Hold',
 		'2' => 'For Sale',
@@ -29,7 +34,7 @@ function epl_jupix_sold_stc_price_plain_value( $price_plain_value ) {
 		'7' => 'Withdrawn'
 	);
 
-	global $property;
+
 
 	if ( 'yes' == $property->get_property_meta('property_sold_stc') && 'sold' != $property->get_property_meta('property_status') ) {
 		$price_plain_value = 'Sold STC';
@@ -47,6 +52,11 @@ add_filter( 'epl_get_price_plain_value' , 'epl_jupix_sold_stc_price_plain_value'
  */
 function epl_jupix_sold_stc_price( $price ) {
 
+	global $property;
+
+	if( in_array($property->post_type, array('rental') ) )
+		return $price;
+
 	$array = array(
 		'1' => 'On Hold',
 		'2' => 'For Sale',
@@ -56,8 +66,6 @@ function epl_jupix_sold_stc_price( $price ) {
 		'7' => 'Withdrawn'
 	);
 
-	global $property;
-
 	if ( 'yes' == $property->get_property_meta('property_sold_stc') && 'sold' != $property->get_property_meta('property_status') ) {
 		$label = 'Sold STC';
 		$price = '<div class="page-price under-offer-status sold-stc-status">'. $label .'</div>';
@@ -66,6 +74,100 @@ function epl_jupix_sold_stc_price( $price ) {
 
 }
 add_filter( 'epl_get_price' , 'epl_jupix_sold_stc_price' );
+
+/**
+ * Leased Pricing Plain Value Filter
+ *
+ * @return		If the listing meta property_sold_stc is yes, return the label.
+ *
+ */
+function epl_jupix_leased_price( $price ) {
+
+	global $property;
+
+	if( ! in_array($property->post_type, array('rental') ) )
+		return $price;
+
+	$array = array(
+		'1'	=>	__( 'On Hold' , 		'epl-jupix' ), // OffMarket
+		'2'	=>	__( 'To Let' , 			'epl-jupix' ), // Current
+		'3'	=>	__( 'References Pending' , 	'epl-jupix' ), // Under Offer
+		'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ), // Leased
+		'5'	=>	__( 'Let' , 			'epl-jupix' ), // Current
+		'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ), // Current
+	);
+
+
+	$property_rental_availability = $property->get_property_meta( 'property_rental_availability' );
+
+	$label = $array[$property_rental_availability];
+
+	if ( $property_rental_availability == 3  ) {
+		$label = 'References Pending';
+		$price = '<div class="page-price under-offer-status sold-stc-status">'. $label .'</div>';
+	}
+
+	if ( $property_rental_availability == 4 ) {
+		$label = 'Let Agreed';
+		$price = '<div class="page-price sold-status">'. $label .'</div>';
+	}
+
+	return $price;
+
+}
+add_filter( 'epl_get_price' , 'epl_jupix_leased_price' );
+
+
+
+/**
+ * Leased Price Sticker
+ *
+ * @return		If the listing meta property_rental_availability is yes, return the label.
+ *
+ */
+function epl_jupix_leased_stc_price( $price ) {
+
+	global $property;
+
+	if( ! in_array($property->post_type, array('rental') ) )
+		return $price;
+
+	$array = array(
+		'1'	=>	__( 'On Hold' , 		'epl-jupix' ), // OffMarket
+		'2'	=>	__( 'To Let' , 			'epl-jupix' ), // Current
+		'3'	=>	__( 'References Pending' , 	'epl-jupix' ), // Under Offer
+		'4'	=>	__( 'Let Agreed' , 		'epl-jupix' ), // Leased
+		'5'	=>	__( 'Let' , 			'epl-jupix' ), // Current
+		'6'	=>	__( 'Withdrawn' , 		'epl-jupix' ), // Current
+	);
+
+	$class_array = array(
+		'1'	=>	'none', // none
+		'2'	=>	'none', // Current
+		'3'	=>	'', // Under Offer
+		'4'	=>	'', // Leased
+		'5'	=>	'none', // Current
+		'6'	=>	'none', // none
+	);
+
+	$property_rental_availability = $property->get_property_meta( 'property_rental_availability' );
+
+	$label = $array[$property_rental_availability];
+
+	$price_sticker = '';
+
+	if ( $property_rental_availability == 3  ) {
+		$price_sticker = '<span class="status-sticker under-offer">'. $label .'</span>';
+	}
+
+	if ( $property_rental_availability == 4 ) {
+		$price_sticker = '<span class="status-sticker leased">'. $label .'</span>';
+	}
+
+	return $price_sticker;
+
+}
+add_filter('epl_get_price_sticker', 'epl_jupix_leased_stc_price' );
 
 /**
  * Jupix propertyType
