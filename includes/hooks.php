@@ -13,4 +13,4 @@ function epl_jpi_license_options_filter($fields = null) {
 	
 	return $fields;
 }
-// add_filter('epl_license_options_filter', 'epl_jpi_license_options_filter', 10, 3);
+add_filter('epl_license_options_filter', 'epl_jpi_license_options_filter', 10, 3);

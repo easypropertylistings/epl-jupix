@@ -1,13 +1,13 @@
 === Easy Property Listings Extension - Jupix Integration ===
 Author URI: http://www.realestateconnected.com.au
-Plugin URI: http://easypropertylistings.com.au/extensions/
+Plugin URI: https://easypropertylistings.com.au/extensions/jupix/
 Contributors: mervb1
-Donate link: http://easypropertylistings.com.au/support-the-site/
+Donate link: https://easypropertylistings.com.au/support-the-site/
 Tags: extension, easy property listings, listings, widget
 Requires at least: 3.3
-Tested up to: 4.6.1
+Tested up to: 4.8.2
 
-Stable Tag: 1.0.1
+Stable Tag: 2.0.0
 
 License: GNU Version 2 or Any Later Version
 
@@ -21,7 +21,7 @@ This plugin once activated will convert the default values in Easy Property List
 
 Contribute to this plugin to improve the integration and ask for assistance where necessary via the jupix integration topic here.
 
-http://easypropertylistings.com.au/support/topic/jupix-integration-easy-property-listings/
+https://easypropertylistings.com.au/support/topic/jupix-integration-easy-property-listings/
 
 == Installation ==
 
@@ -30,6 +30,6 @@ http://easypropertylistings.com.au/support/topic/jupix-integration-easy-property
 
 == Change log ==
 
-= 0.1: April 20, 2015 =
+= 2.0.0: October 3, 2017 =
 
 Initial public release.
