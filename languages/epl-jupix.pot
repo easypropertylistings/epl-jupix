@@ -1,0 +1,846 @@
+# Copyright (C) 2020 Merv Barrett
+# This file is distributed under the same license as the Easy Property Listings - Jupix Integration package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Easy Property Listings - Jupix Integration 2.0.90\n"
+"Report-Msgid-Bugs-To: "
+"https://github.com/easypropertylistings/epl-jupix/issues\n"
+"POT-Creation-Date: 2020-03-17 01:59:29+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2020-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Merv Barrett <support@easypropertylistings.com.au>\n"
+"Language-Team: Real Estate Connected <support@realestateconnected.com.au>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_x;_ex;_n\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: node_modules\n"
+"X-Poedit-SearchPathExcluded-1: epl-apidocs\n"
+"X-Poedit-SearchPathExcluded-2: apigen\n"
+"X-Poedit-SearchPathExcluded-3: Gruntfile.js\n"
+"X-Poedit-SearchPathExcluded-4: apigen.neon\n"
+"X-Poedit-SearchPathExcluded-5: package.json\n"
+"X-Poedit-SearchPathExcluded-6: README.md\n"
+"X-Generator: grunt-wp-i18n 1.0.3\n"
+
+#: epl-jupix.php:104
+msgid ""
+"Please activate <b>Easy Property Listings</b> to enable all functions of "
+"Easy Property Listings - Stamp Duty Calculator"
+msgstr ""
+
+#: includes/functions-ORIG.php:73 includes/functions.php:326
+msgid "Acres"
+msgstr ""
+
+#: includes/functions-ORIG.php:74 includes/functions.php:327
+msgid "Hectares"
+msgstr ""
+
+#: includes/functions-ORIG.php:75 includes/functions.php:328
+msgid "sq m"
+msgstr ""
+
+#: includes/functions-ORIG.php:76 includes/functions.php:329
+msgid "sq ft"
+msgstr ""
+
+#: includes/functions-ORIG.php:125 includes/functions-ORIG.php:155
+#: includes/functions-ORIG.php:489 includes/functions-ORIG.php:669
+#: includes/functions.php:92 includes/functions.php:136
+#: includes/meta-boxes-ORIG.php:48 includes/meta-boxes-ORIG.php:58
+#: includes/meta-boxes.php:100 includes/template-functions.php:120
+msgid "On Hold"
+msgstr ""
+
+#: includes/functions-ORIG.php:126 includes/functions-ORIG.php:670
+#: includes/meta-boxes-ORIG.php:59
+msgid "For Sale"
+msgstr ""
+
+#: includes/functions-ORIG.php:127 includes/functions-ORIG.php:673
+#: includes/meta-boxes-ORIG.php:62
+msgid "Under Offer"
+msgstr ""
+
+#: includes/functions-ORIG.php:128 includes/functions-ORIG.php:161
+#: includes/functions-ORIG.php:674 includes/meta-boxes-ORIG.php:63
+#: includes/meta-boxes.php:16 includes/template-functions.php:30
+msgid "Sold STC"
+msgstr ""
+
+#: includes/functions-ORIG.php:129 includes/functions-ORIG.php:157
+msgid "Sold"
+msgstr ""
+
+#: includes/functions-ORIG.php:130 includes/functions-ORIG.php:154
+#: includes/functions-ORIG.php:494 includes/functions-ORIG.php:679
+#: includes/functions.php:97 includes/functions.php:141
+#: includes/meta-boxes-ORIG.php:53 includes/meta-boxes-ORIG.php:68
+#: includes/meta-boxes.php:105 includes/template-functions.php:125
+msgid "Withdrawn"
+msgstr ""
+
+#: includes/functions-ORIG.php:153
+msgid "Current"
+msgstr ""
+
+#: includes/functions-ORIG.php:165
+msgid "Leased"
+msgstr ""
+
+#: includes/functions-ORIG.php:185 includes/functions-ORIG.php:214
+#: includes/functions-ORIG.php:276 includes/functions-ORIG.php:339
+#: includes/functions-ORIG.php:760 includes/functions.php:351
+#: includes/import-processing-functions.php:110 includes/meta-boxes-ORIG.php:11
+#: includes/meta-boxes-ORIG.php:38 includes/meta-boxes.php:51
+msgid "Not Specified"
+msgstr ""
+
+#: includes/functions-ORIG.php:186 includes/functions-ORIG.php:213
+#: includes/functions-ORIG.php:761 includes/functions.php:352
+msgid "Private Treaty"
+msgstr ""
+
+#: includes/functions-ORIG.php:187 includes/functions-ORIG.php:215
+#: includes/functions-ORIG.php:762 includes/functions.php:353
+msgid "By Auction"
+msgstr ""
+
+#: includes/functions-ORIG.php:188 includes/functions-ORIG.php:216
+#: includes/functions-ORIG.php:763 includes/functions.php:354
+msgid "Confidential"
+msgstr ""
+
+#: includes/functions-ORIG.php:189 includes/functions-ORIG.php:217
+#: includes/functions-ORIG.php:764 includes/functions.php:355
+msgid "By Tender"
+msgstr ""
+
+#: includes/functions-ORIG.php:190 includes/functions-ORIG.php:218
+#: includes/functions-ORIG.php:765 includes/functions.php:356
+msgid "Offers Invited"
+msgstr ""
+
+#: includes/functions-ORIG.php:277 includes/import-processing-functions.php:111
+#: includes/meta-boxes-ORIG.php:12
+msgid "New Build"
+msgstr ""
+
+#: includes/functions-ORIG.php:278 includes/import-processing-functions.php:112
+#: includes/meta-boxes-ORIG.php:13
+msgid "Modern"
+msgstr ""
+
+#: includes/functions-ORIG.php:279 includes/import-processing-functions.php:113
+#: includes/meta-boxes-ORIG.php:14
+msgid "1980s to 1990s"
+msgstr ""
+
+#: includes/functions-ORIG.php:280 includes/import-processing-functions.php:114
+#: includes/meta-boxes-ORIG.php:15
+msgid "1950s, 1960s and 1970s"
+msgstr ""
+
+#: includes/functions-ORIG.php:281 includes/import-processing-functions.php:115
+#: includes/meta-boxes-ORIG.php:16
+msgid "1940s"
+msgstr ""
+
+#: includes/functions-ORIG.php:282 includes/import-processing-functions.php:116
+#: includes/meta-boxes-ORIG.php:17
+msgid "1920s to 1930s"
+msgstr ""
+
+#: includes/functions-ORIG.php:283 includes/import-processing-functions.php:117
+#: includes/meta-boxes-ORIG.php:18
+msgid "Edwardian (1901 - 1910)"
+msgstr ""
+
+#: includes/functions-ORIG.php:284 includes/import-processing-functions.php:118
+#: includes/meta-boxes-ORIG.php:19
+msgid "Victorian (1837 - 1901)"
+msgstr ""
+
+#: includes/functions-ORIG.php:285 includes/import-processing-functions.php:119
+#: includes/meta-boxes-ORIG.php:20
+msgid "Georgian (1714 - 1830)"
+msgstr ""
+
+#: includes/functions-ORIG.php:286 includes/import-processing-functions.php:120
+#: includes/meta-boxes-ORIG.php:21
+msgid "Pre 18th Century"
+msgstr ""
+
+#: includes/functions-ORIG.php:308 includes/meta-boxes-ORIG.php:25
+msgid "Asking Price Of"
+msgstr ""
+
+#: includes/functions-ORIG.php:309 includes/meta-boxes-ORIG.php:26
+msgid "Fixed Price"
+msgstr ""
+
+#: includes/functions-ORIG.php:310 includes/meta-boxes-ORIG.php:27
+msgid "From"
+msgstr ""
+
+#: includes/functions-ORIG.php:311 includes/meta-boxes-ORIG.php:28
+msgid "Guide Price"
+msgstr ""
+
+#: includes/functions-ORIG.php:312 includes/meta-boxes-ORIG.php:29
+msgid "Offers In Region Of"
+msgstr ""
+
+#: includes/functions-ORIG.php:313 includes/meta-boxes-ORIG.php:30
+msgid "Offers Over"
+msgstr ""
+
+#: includes/functions-ORIG.php:314 includes/meta-boxes-ORIG.php:31
+msgid "Auction Guide Price"
+msgstr ""
+
+#: includes/functions-ORIG.php:315 includes/meta-boxes-ORIG.php:32
+msgid "Sale By Tender"
+msgstr ""
+
+#: includes/functions-ORIG.php:316 includes/meta-boxes-ORIG.php:33
+msgid "Shared Ownership"
+msgstr ""
+
+#: includes/functions-ORIG.php:317 includes/meta-boxes-ORIG.php:34
+msgid "Offers In Excess Of"
+msgstr ""
+
+#: includes/functions-ORIG.php:340 includes/meta-boxes-ORIG.php:39
+#: includes/meta-boxes.php:52
+msgid "Freehold"
+msgstr ""
+
+#: includes/functions-ORIG.php:341 includes/meta-boxes-ORIG.php:40
+#: includes/meta-boxes.php:53
+msgid "Leasehold"
+msgstr ""
+
+#: includes/functions-ORIG.php:342 includes/meta-boxes-ORIG.php:41
+#: includes/meta-boxes.php:54
+msgid "Commonhold"
+msgstr ""
+
+#: includes/functions-ORIG.php:343 includes/meta-boxes-ORIG.php:42
+#: includes/meta-boxes.php:55
+msgid "Share of Freehold"
+msgstr ""
+
+#: includes/functions-ORIG.php:344 includes/meta-boxes-ORIG.php:43
+#: includes/meta-boxes.php:56
+msgid "Flying Freehold"
+msgstr ""
+
+#: includes/functions-ORIG.php:345 includes/meta-boxes-ORIG.php:44
+#: includes/meta-boxes.php:57
+msgid "Share Transfer"
+msgstr ""
+
+#: includes/functions-ORIG.php:361 includes/functions-ORIG.php:378
+#: includes/functions-ORIG.php:394 includes/functions-ORIG.php:533
+#: includes/functions-ORIG.php:650
+msgid "no"
+msgstr ""
+
+#: includes/functions-ORIG.php:362 includes/functions-ORIG.php:379
+#: includes/functions-ORIG.php:395 includes/functions-ORIG.php:534
+#: includes/functions-ORIG.php:651
+msgid "yes"
+msgstr ""
+
+#: includes/functions-ORIG.php:417 includes/functions.php:190
+#: includes/functions.php:391 includes/meta-boxes.php:77
+msgid "Houses"
+msgstr ""
+
+#: includes/functions-ORIG.php:419 includes/functions.php:192
+#: includes/functions.php:260
+msgid "Barn Conversion"
+msgstr ""
+
+#: includes/functions-ORIG.php:420 includes/functions.php:193
+#: includes/functions.php:261
+msgid "Cottage"
+msgstr ""
+
+#: includes/functions-ORIG.php:421 includes/functions.php:194
+#: includes/functions.php:262
+msgid "Chalet"
+msgstr ""
+
+#: includes/functions-ORIG.php:422 includes/functions.php:195
+#: includes/functions.php:263
+msgid "Detached House"
+msgstr ""
+
+#: includes/functions-ORIG.php:423 includes/functions.php:196
+#: includes/functions.php:264
+msgid "Semi-Detached House"
+msgstr ""
+
+#: includes/functions-ORIG.php:424 includes/functions.php:197
+#: includes/functions.php:272
+msgid "Link Detached"
+msgstr ""
+
+#: includes/functions-ORIG.php:425 includes/functions.php:198
+#: includes/functions.php:265
+msgid "Farm House"
+msgstr ""
+
+#: includes/functions-ORIG.php:426 includes/functions.php:199
+#: includes/functions.php:266
+msgid "Manor House"
+msgstr ""
+
+#: includes/functions-ORIG.php:427 includes/functions.php:200
+#: includes/functions.php:267
+msgid "Mews"
+msgstr ""
+
+#: includes/functions-ORIG.php:428 includes/functions.php:201
+#: includes/functions.php:268
+msgid "Mid Terraced House"
+msgstr ""
+
+#: includes/functions-ORIG.php:429 includes/functions.php:202
+#: includes/functions.php:269
+msgid "End Terraced House"
+msgstr ""
+
+#: includes/functions-ORIG.php:430 includes/functions.php:203
+#: includes/functions.php:270
+msgid "Town House"
+msgstr ""
+
+#: includes/functions-ORIG.php:431 includes/functions.php:204
+#: includes/functions.php:271
+msgid "Villa"
+msgstr ""
+
+#: includes/functions-ORIG.php:432 includes/functions.php:205
+#: includes/functions.php:273
+msgid "Shared House"
+msgstr ""
+
+#: includes/functions-ORIG.php:433 includes/functions.php:206
+#: includes/functions.php:274
+msgid "Sheltered Housing"
+msgstr ""
+
+#: includes/functions-ORIG.php:436 includes/functions.php:209
+#: includes/functions.php:392 includes/meta-boxes.php:78
+msgid "Flats / Apartments"
+msgstr ""
+
+#: includes/functions-ORIG.php:438 includes/functions.php:211
+#: includes/functions.php:277
+msgid "Apartment"
+msgstr ""
+
+#: includes/functions-ORIG.php:439 includes/functions.php:212
+#: includes/functions.php:278
+msgid "Bedsit"
+msgstr ""
+
+#: includes/functions-ORIG.php:440 includes/functions.php:213
+#: includes/functions.php:279
+msgid "Ground Floor Flat"
+msgstr ""
+
+#: includes/functions-ORIG.php:441 includes/functions.php:214
+#: includes/functions.php:280
+msgid "Flat"
+msgstr ""
+
+#: includes/functions-ORIG.php:442 includes/functions.php:215
+#: includes/functions.php:281
+msgid "Ground Floor Maisonette"
+msgstr ""
+
+#: includes/functions-ORIG.php:443 includes/functions.php:216
+#: includes/functions.php:282
+msgid "Maisonette"
+msgstr ""
+
+#: includes/functions-ORIG.php:444 includes/functions.php:217
+#: includes/functions.php:283
+msgid "Penthouse"
+msgstr ""
+
+#: includes/functions-ORIG.php:445 includes/functions.php:218
+#: includes/functions.php:284
+msgid "Studio"
+msgstr ""
+
+#: includes/functions-ORIG.php:446 includes/functions.php:219
+#: includes/functions.php:285
+msgid "Shared Flat"
+msgstr ""
+
+#: includes/functions-ORIG.php:449 includes/functions.php:222
+#: includes/functions.php:393 includes/meta-boxes.php:79
+msgid "Bungalows"
+msgstr ""
+
+#: includes/functions-ORIG.php:450 includes/functions.php:223
+#: includes/functions.php:288
+msgid "Detached Bungalow"
+msgstr ""
+
+#: includes/functions-ORIG.php:451 includes/functions.php:224
+#: includes/functions.php:290
+msgid "End Terraced Bungalow"
+msgstr ""
+
+#: includes/functions-ORIG.php:452 includes/functions.php:225
+#: includes/functions.php:291
+msgid "Mid Terraced Bungalow"
+msgstr ""
+
+#: includes/functions-ORIG.php:453 includes/functions.php:226
+#: includes/functions.php:289
+msgid "Semi-Detached Bungalow"
+msgstr ""
+
+#: includes/functions-ORIG.php:455 includes/functions.php:228
+#: includes/functions.php:394 includes/meta-boxes.php:80
+msgid "Other"
+msgstr ""
+
+#: includes/functions-ORIG.php:456 includes/functions.php:229
+#: includes/functions.php:294
+msgid "Building Plot / Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:457 includes/functions-ORIG.php:861
+#: includes/functions.php:230 includes/functions.php:295
+msgid "Garage"
+msgstr ""
+
+#: includes/functions-ORIG.php:458 includes/functions.php:231
+#: includes/functions.php:296
+msgid "House Boat"
+msgstr ""
+
+#: includes/functions-ORIG.php:459 includes/functions.php:232
+#: includes/functions.php:297
+msgid "Mobile Home"
+msgstr ""
+
+#: includes/functions-ORIG.php:460 includes/functions.php:233
+#: includes/functions.php:298
+msgid "Parking"
+msgstr ""
+
+#: includes/functions-ORIG.php:461 includes/functions.php:234
+#: includes/functions.php:299
+msgid "Equestrian"
+msgstr ""
+
+#: includes/functions-ORIG.php:462 includes/functions.php:235
+#: includes/functions.php:300
+msgid "Unconverted Barn"
+msgstr ""
+
+#: includes/functions-ORIG.php:490 includes/functions-ORIG.php:671
+#: includes/functions.php:93 includes/functions.php:137
+#: includes/meta-boxes-ORIG.php:49 includes/meta-boxes-ORIG.php:60
+#: includes/meta-boxes-ORIG.php:212 includes/meta-boxes.php:101
+#: includes/template-functions.php:121
+msgid "To Let"
+msgstr ""
+
+#: includes/functions-ORIG.php:491 includes/functions.php:94
+#: includes/functions.php:138 includes/meta-boxes-ORIG.php:50
+#: includes/meta-boxes.php:102 includes/template-functions.php:122
+msgid "References Pending"
+msgstr ""
+
+#: includes/functions-ORIG.php:492 includes/functions-ORIG.php:677
+#: includes/functions.php:95 includes/functions.php:139
+#: includes/meta-boxes-ORIG.php:51 includes/meta-boxes-ORIG.php:66
+#: includes/meta-boxes.php:103 includes/template-functions.php:123
+msgid "Let Agreed"
+msgstr ""
+
+#: includes/functions-ORIG.php:493 includes/functions-ORIG.php:678
+#: includes/functions.php:96 includes/functions.php:140
+#: includes/meta-boxes-ORIG.php:52 includes/meta-boxes-ORIG.php:67
+#: includes/meta-boxes.php:104 includes/template-functions.php:124
+msgid "Let"
+msgstr ""
+
+#: includes/functions-ORIG.php:513
+msgid "pcm"
+msgstr ""
+
+#: includes/functions-ORIG.php:514
+msgid "pw"
+msgstr ""
+
+#: includes/functions-ORIG.php:515
+msgid "pa"
+msgstr ""
+
+#: includes/functions-ORIG.php:608
+msgid "Residential Farm"
+msgstr ""
+
+#: includes/functions-ORIG.php:609
+msgid "Commercial Farm"
+msgstr ""
+
+#: includes/functions-ORIG.php:610
+msgid "Poultry Farm"
+msgstr ""
+
+#: includes/functions-ORIG.php:611
+msgid "Livestock Farm"
+msgstr ""
+
+#: includes/functions-ORIG.php:612
+msgid "Arable Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:613
+msgid "Bare Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:614
+msgid "Grazing Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:615
+msgid "Paddocks"
+msgstr ""
+
+#: includes/functions-ORIG.php:616
+msgid "Pasture Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:617
+msgid "Shooting"
+msgstr ""
+
+#: includes/functions-ORIG.php:618
+msgid "Fishing"
+msgstr ""
+
+#: includes/functions-ORIG.php:619
+msgid "General Leisure"
+msgstr ""
+
+#: includes/functions-ORIG.php:620
+msgid "Woodland"
+msgstr ""
+
+#: includes/functions-ORIG.php:621
+msgid "Investment Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:622
+msgid "Development Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:623 includes/functions-ORIG.php:624
+msgid "Residential Land"
+msgstr ""
+
+#: includes/functions-ORIG.php:625
+msgid "Commercial / Industrial"
+msgstr ""
+
+#: includes/functions-ORIG.php:672 includes/meta-boxes-ORIG.php:61
+msgid "For Sale / To Let"
+msgstr ""
+
+#: includes/functions-ORIG.php:675 includes/meta-boxes-ORIG.php:64
+msgid "Exchanged"
+msgstr ""
+
+#: includes/functions-ORIG.php:676 includes/meta-boxes-ORIG.php:65
+msgid "Completed"
+msgstr ""
+
+#: includes/functions-ORIG.php:833
+msgid "Offices"
+msgstr ""
+
+#: includes/functions-ORIG.php:834
+msgid "Serviced Offices"
+msgstr ""
+
+#: includes/functions-ORIG.php:835
+msgid "Business Park"
+msgstr ""
+
+#: includes/functions-ORIG.php:836 includes/functions-ORIG.php:848
+msgid "Science / Tech / R&D"
+msgstr ""
+
+#: includes/functions-ORIG.php:837
+msgid "A1 - High Street"
+msgstr ""
+
+#: includes/functions-ORIG.php:838
+msgid "A1 \\96 Centre"
+msgstr ""
+
+#: includes/functions-ORIG.php:839
+msgid "A1 - Out Of Town"
+msgstr ""
+
+#: includes/functions-ORIG.php:840
+msgid "A1 \\96 Other"
+msgstr ""
+
+#: includes/functions-ORIG.php:841
+msgid "A2 - Financial Services"
+msgstr ""
+
+#: includes/functions-ORIG.php:842
+msgid "A3 - Restaurants / Cafes"
+msgstr ""
+
+#: includes/functions-ORIG.php:843
+msgid "A4 - Pubs / Bars / Clubs"
+msgstr ""
+
+#: includes/functions-ORIG.php:844
+msgid "A5 - Take Away"
+msgstr ""
+
+#: includes/functions-ORIG.php:845
+msgid "B1 - Light Industrial"
+msgstr ""
+
+#: includes/functions-ORIG.php:846
+msgid "B2 - Heavy Industrial"
+msgstr ""
+
+#: includes/functions-ORIG.php:847
+msgid "B8 - Warehouse / Distribution"
+msgstr ""
+
+#: includes/functions-ORIG.php:849
+msgid "Other Industrial"
+msgstr ""
+
+#: includes/functions-ORIG.php:850
+msgid "Caravan Park"
+msgstr ""
+
+#: includes/functions-ORIG.php:851
+msgid "Cinema"
+msgstr ""
+
+#: includes/functions-ORIG.php:852
+msgid "Golf Property"
+msgstr ""
+
+#: includes/functions-ORIG.php:853
+msgid "Guest House / Hotel"
+msgstr ""
+
+#: includes/functions-ORIG.php:854
+msgid "Leisure Park"
+msgstr ""
+
+#: includes/functions-ORIG.php:855
+msgid "Leisure Other"
+msgstr ""
+
+#: includes/functions-ORIG.php:856
+msgid "Day Nursery / Child Care"
+msgstr ""
+
+#: includes/functions-ORIG.php:857
+msgid "Nursing & Care Homes"
+msgstr ""
+
+#: includes/functions-ORIG.php:858
+msgid "Surgeries"
+msgstr ""
+
+#: includes/functions-ORIG.php:859
+msgid "Petrol Stations"
+msgstr ""
+
+#: includes/functions-ORIG.php:860
+msgid "Show Room"
+msgstr ""
+
+#: includes/functions-ORIG.php:862
+msgid "Industrial (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:863
+msgid "Office (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:864
+msgid "Residential (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:865
+msgid "Retail (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:866
+msgid "Leisure (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:867
+msgid "Commercial / Other (land)"
+msgstr ""
+
+#: includes/functions-ORIG.php:868
+msgid "Refurbishment Opportunities"
+msgstr ""
+
+#: includes/functions-ORIG.php:869
+msgid "Residential Conversions"
+msgstr ""
+
+#: includes/functions-ORIG.php:870
+msgid "Residential"
+msgstr ""
+
+#: includes/functions-ORIG.php:871
+msgid "Commercial"
+msgstr ""
+
+#: includes/functions-ORIG.php:872
+msgid "Ground Leases"
+msgstr ""
+
+#: includes/functions.php:371 includes/functions.php:388
+#: includes/meta-boxes.php:74
+msgid "Property Type"
+msgstr ""
+
+#: includes/functions.php:414 includes/template-functions.php:82
+msgid "Brochure"
+msgstr ""
+
+#: includes/functions.php:427 includes/template-functions.php:92
+msgid "Virtual Tour"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:73
+msgid "Jupix Special Fields"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:85
+msgid "Flags"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:92 includes/meta-boxes.php:34
+msgid "Reception Rooms"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:99 includes/meta-boxes.php:41
+msgid "Kitchens"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:106
+msgid "Age"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:129
+msgid "Price Qualifier"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:137 includes/meta-boxes-ORIG.php:245
+#: includes/meta-boxes.php:48
+msgid "Tenure"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:145
+msgid "Development Opportunity"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:148 includes/meta-boxes-ORIG.php:159
+#: includes/meta-boxes-ORIG.php:187 includes/meta-boxes-ORIG.php:215
+#: includes/meta-boxes.php:19
+msgid "Yes"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:149 includes/meta-boxes-ORIG.php:160
+#: includes/meta-boxes-ORIG.php:188 includes/meta-boxes-ORIG.php:216
+msgid "No"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:156
+msgid "Investment Opportunity"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:167
+msgid "Estimated Rental Income"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:176
+msgid "Rental Availability"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:184
+msgid "Student"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:195
+msgid "Letting Fee Policy Headline"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:203
+msgid "Letting Fee Policy Details"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:223
+msgid "Availability"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:231
+msgid "Price From"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:238
+msgid "Price To"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:252
+msgid "Rent Frequency"
+msgstr ""
+
+#: includes/meta-boxes-ORIG.php:259
+msgid "Building Area To"
+msgstr ""
+
+#: includes/meta-boxes.php:97
+msgid "Rental Availablilty"
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Easy Property Listings - Jupix Integration"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Alter Easy Property Listings for the Jupix format."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Merv Barrett"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://www.realestateconnected.com.au/"
+msgstr ""
