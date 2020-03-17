@@ -1,12 +1,21 @@
 <?php
-/*
+/**
  * Plugin Name: Easy Property Listings - Jupix Integration
  * Plugin URL: https://easypropertylistings.com.au/extension/jupix
  * Description: Alter Easy Property Listings for the Jupix format.
- * Version: 2.0.0
  * Author: Merv Barrett
- * Author URI: http://www.realestateconnected.com.au
+ * Author URI: http://www.realestateconnected.com.au/
+ * Version: 2.0.90
+ * Text Domain: epl-jupix
+ * Domain Path: languages
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with Easy Property Listings. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package EPL-JUPIX
+ * @author Merv Barrett
  */
+
 
 // Exit if accessed directly
 if ( ! defined( 'ABSPATH' ) ) exit;
