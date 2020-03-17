@@ -1,0 +1,12 @@
+# Editors
+.idea
+
+# Grunt
+/node_modules/
+package-lock.json
+
+# OS X metadata
+.DS_Store
+
+# Windows junk
+Thumbs.db
