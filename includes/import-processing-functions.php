@@ -54,7 +54,9 @@ function epl_jupix_import_price_qualifier( $price_qualifier , $price ) {
  * Processing Function for property_sold_stc
  *
  * @import_usage	[epl_jupix_import_sold_stc({availability[1]})]
- * @return		If price qualifier is 0 returns empty, else returns formatted preice prefix and formatted currency
+ * @return		If XML <availability> = 4 (Sold STC) return 'yes' otherwise 'no'
+ * NOTE:                20181119 At the moment if using "EPL Templates" this creates an issue with properties
+ *                        <availability>5 (Sold) as it shows the properties at (New) which is wrong.
  *
  */
 function epl_jupix_import_sold_stc( $availability ) {
