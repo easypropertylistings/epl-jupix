@@ -2,11 +2,11 @@
 /**
  * Import Processing Functions for JUPIX
  *
- * @package     EPL_JUPIX
+ * @package     EPL-JUPIX
  * @subpackage  Import Processing Functions
- * @copyright   Copyright (c) 2014, Merv Barrett
+ * @copyright   Copyright (c) 2020, Merv Barrett
  * @license     http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since       1.0
+ * @since       1.0.0
  */
 
 // Exit if accessed directly
@@ -14,6 +14,26 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Enable record skipping from native Jupix file
+ *
+ * @param string $default  Default value.
+ * @param string $xml_node Node name.
+ * @param string $pid      Import ID.
+ *
+ * @since 2.1.0
+ */
+function epl_jupix_filter_modified_date( $default, $xml_node, $pid  ) {
+	$updated = '';
+	if( !empty( $xml_node['dateLastModified'] ) ) {
+		$updated .= $xml_node['dateLastModified'];
+	}
+	if( !empty( $xml_node['timeLastModified'] ) ) {
+		$updated .= '-'.$xml_node['timeLastModified'];
+	}
+	return !empty( $updated ) ? epl_feedsync_format_date( $updated ) : $default;
+}
+add_filter( 'epl_import_mod_time', 'epl_jupix_filter_modified_date', 10, 3 );
 
 /**
  * Processing Function for property_price_text
