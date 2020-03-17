@@ -17,8 +17,11 @@
  */
 
 
-// Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+// Exit if accessed directly.
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 if ( ! class_exists( 'EPL_Jupix' ) ) :
 	/*
 	 * Main EPL_Jupix Class
@@ -79,11 +82,11 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 */
 		public function activation() {
 			if ( ! class_exists( 'Easy_Property_Listings' ) ) {
-				// is this plugin active?
+				// Is this plugin active?
 				if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-			 		// unset activation notice
+			 		// Unset activation notice.
 			 		unset( $_GET[ 'activate' ] );
-			 		// display notice
+			 		// Display notice.
 			 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 				}
 			}
