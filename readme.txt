@@ -5,7 +5,7 @@ Contributors: mervb1
 Donate link: https://easypropertylistings.com.au/support-the-site/
 Tags: extension, easy property listings, listings, widget
 Requires at least: 3.3
-Tested up to: 4.8.2
+Tested up to: 5.3.2
 
 Stable Tag: 2.0.0
 
