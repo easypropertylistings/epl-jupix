@@ -72,10 +72,10 @@ function epl_jpi_property_price_display_value( $key ) {
  */
 function epl_jpi_property_building_area_unit_filter() {
 	$defaults = array(
-		'acres'    => __( 'Acres', 'epl-jpi' ),
-		'hectares' => __( 'Hectares', 'epl-jpi' ),
-		'sq m'     => __( 'sq m', 'epl-jpi' ),
-		'sq ft'    => __( 'sq ft', 'epl-jpi' ),
+		'acres'    => __( 'Acres', 'epl-jupix' ),
+		'hectares' => __( 'Hectares', 'epl-jupix' ),
+		'sq m'     => __( 'sq m', 'epl-jupix' ),
+		'sq ft'    => __( 'sq ft', 'epl-jupix' ),
 	);
 	return $defaults;
 }
@@ -125,12 +125,12 @@ function epl_jpi_flags() {
 
 function epl_jpi_property_status() {
 	$jupix_defaults = array(
-		'1' => __( 'On Hold', 'epl-jpi' ),
-		'2' => __( 'For Sale', 'epl-jpi' ),
-		'3' => __( 'Under Offer', 'epl-jpi' ),
-		'4' => __( 'Sold STC', 'epl-jpi' ),
-		'5' => __( 'Sold', 'epl-jpi' ),
-		'7' => __( 'Withdrawn', 'epl-jpi' ),
+		'1' => __( 'On Hold', 'epl-jupix' ),
+		'2' => __( 'For Sale', 'epl-jupix' ),
+		'3' => __( 'Under Offer', 'epl-jupix' ),
+		'4' => __( 'Sold STC', 'epl-jupix' ),
+		'5' => __( 'Sold', 'epl-jupix' ),
+		'7' => __( 'Withdrawn', 'epl-jupix' ),
 	);
 
 	// Jupix	=>	Easy Property Listings
@@ -185,12 +185,12 @@ add_filter( 'epl_opts_property_status_filter', 'epl_jpi_property_status_filter' 
 
 function epl_jpi_property_authority() {
 	$jupix = array(
-		'0' => __( 'Not Specified', 'epl-jpi' ),
-		'1' => __( 'Private Treaty', 'epl-jpi' ),
-		'2' => __( 'By Auction', 'epl-jpi' ),
-		'3' => __( 'Confidential', 'epl-jpi' ),
-		'4' => __( 'By Tender', 'epl-jpi' ),
-		'5' => __( 'Offers Invited', 'epl-jpi' ),
+		'0' => __( 'Not Specified', 'epl-jupix' ),
+		'1' => __( 'Private Treaty', 'epl-jupix' ),
+		'2' => __( 'By Auction', 'epl-jupix' ),
+		'3' => __( 'Confidential', 'epl-jupix' ),
+		'4' => __( 'By Tender', 'epl-jupix' ),
+		'5' => __( 'Offers Invited', 'epl-jupix' ),
 	);
 
 	$defaults = array(
@@ -213,12 +213,12 @@ function epl_jpi_property_authority_value( $key ) {
 
 function epl_jpi_property_authority_filter() {
 	$defaults = array(
-		'exclusive'    => __( 'Private Treaty', 'epl-jpi' ),
-		'open'         => __( 'Not Specified', 'epl-jpi' ),
-		'auction'      => __( 'By Auction', 'epl-jpi' ),    // Important for EPL Pricing
-		'confidential' => __( 'Confidential', 'epl-jpi' ),
-		'tender'       => __( 'By Tender', 'epl-jpi' ),
-		'offers'       => __( 'Offers Invited', 'epl-jpi' ),
+		'exclusive'    => __( 'Private Treaty', 'epl-jupix' ),
+		'open'         => __( 'Not Specified', 'epl-jupix' ),
+		'auction'      => __( 'By Auction', 'epl-jupix' ),    // Important for EPL Pricing
+		'confidential' => __( 'Confidential', 'epl-jupix' ),
+		'tender'       => __( 'By Tender', 'epl-jupix' ),
+		'offers'       => __( 'Offers Invited', 'epl-jupix' ),
 	);
 
 	return $defaults;
@@ -276,17 +276,17 @@ function epl_jpi_kitchens() {
  */
 function epl_jpi_age() {
 	$property_age = array(
-		'0'  => __( 'Not Specified', 'epl-jpi' ),
-		'1'  => __( 'New Build', 'epl-jpi' ),
-		'2'  => __( 'Modern', 'epl-jpi' ),
-		'3'  => __( '1980s to 1990s', 'epl-jpi' ),
-		'4'  => __( '1950s, 1960s and 1970s', 'epl-jpi' ),
-		'5'  => __( '1940s', 'epl-jpi' ),
-		'6'  => __( '1920s to 1930s', 'epl-jpi' ),
-		'7'  => __( 'Edwardian (1901 - 1910)', 'epl-jpi' ),
-		'8'  => __( 'Victorian (1837 - 1901)', 'epl-jpi' ),
-		'9'  => __( 'Georgian (1714 - 1830)', 'epl-jpi' ),
-		'10' => __( 'Pre 18th Century', 'epl-jpi' ),
+		'0'  => __( 'Not Specified', 'epl-jupix' ),
+		'1'  => __( 'New Build', 'epl-jupix' ),
+		'2'  => __( 'Modern', 'epl-jupix' ),
+		'3'  => __( '1980s to 1990s', 'epl-jupix' ),
+		'4'  => __( '1950s, 1960s and 1970s', 'epl-jupix' ),
+		'5'  => __( '1940s', 'epl-jupix' ),
+		'6'  => __( '1920s to 1930s', 'epl-jupix' ),
+		'7'  => __( 'Edwardian (1901 - 1910)', 'epl-jupix' ),
+		'8'  => __( 'Victorian (1837 - 1901)', 'epl-jupix' ),
+		'9'  => __( 'Georgian (1714 - 1830)', 'epl-jupix' ),
+		'10' => __( 'Pre 18th Century', 'epl-jupix' ),
 	);
 }
 
@@ -308,16 +308,16 @@ function epl_jpi_age() {
  */
 function epl_jpi_price_qualifier( $input = false, $price = 0 ) {
 	$price_qualifier = array(
-		'1'  => __( 'Asking Price Of', 'epl-jpi' ),
-		'2'  => __( 'Fixed Price', 'epl-jpi' ),
-		'3'  => __( 'From', 'epl-jpi' ),
-		'4'  => __( 'Guide Price', 'epl-jpi' ),
-		'5'  => __( 'Offers In Region Of', 'epl-jpi' ),
-		'6'  => __( 'Offers Over', 'epl-jpi' ),
-		'7'  => __( 'Auction Guide Price', 'epl-jpi' ),
-		'8'  => __( 'Sale By Tender', 'epl-jpi' ),
-		'9'  => __( 'Shared Ownership', 'epl-jpi' ),
-		'10' => __( 'Offers In Excess Of', 'epl-jpi' ),
+		'1'  => __( 'Asking Price Of', 'epl-jupix' ),
+		'2'  => __( 'Fixed Price', 'epl-jupix' ),
+		'3'  => __( 'From', 'epl-jupix' ),
+		'4'  => __( 'Guide Price', 'epl-jupix' ),
+		'5'  => __( 'Offers In Region Of', 'epl-jupix' ),
+		'6'  => __( 'Offers Over', 'epl-jupix' ),
+		'7'  => __( 'Auction Guide Price', 'epl-jupix' ),
+		'8'  => __( 'Sale By Tender', 'epl-jupix' ),
+		'9'  => __( 'Shared Ownership', 'epl-jupix' ),
+		'10' => __( 'Offers In Excess Of', 'epl-jupix' ),
 	);
 	$result          = $price_qualifier[ $input ] . ' ' . epl_currency_formatted_amount( $price );
 	return $result;
@@ -339,12 +339,12 @@ function epl_jpi_price_qualifier( $input = false, $price = 0 ) {
  */
 function epl_jpi_property_tenure() {
 	$tenure = array(
-		'0' => __( 'Not Specified', 'epl-jpi' ),
-		'1' => __( 'Freehold', 'epl-jpi' ),
-		'2' => __( 'Leasehold', 'epl-jpi' ),
-		'3' => __( 'Commonhold', 'epl-jpi' ),
-		'4' => __( 'Share of Freehold', 'epl-jpi' ),
-		'5' => __( 'Flying Freehold', 'epl-jpi' ),
+		'0' => __( 'Not Specified', 'epl-jupix' ),
+		'1' => __( 'Freehold', 'epl-jupix' ),
+		'2' => __( 'Leasehold', 'epl-jupix' ),
+		'3' => __( 'Commonhold', 'epl-jupix' ),
+		'4' => __( 'Share of Freehold', 'epl-jupix' ),
+		'5' => __( 'Flying Freehold', 'epl-jupix' ),
 		'6' => __( 'Share Transfer', 'epl-jpi' ),
 	);
 }

@@ -345,12 +345,12 @@ add_filter( 'epl_opts_area_unit_filter', 'epl_jpi_property_building_area_unit_fi
  */
 function epl_jpi_com_sale_by() {
 	$sale_by = array(
-		'0' => __( 'Not Specified', 'epl-jpi' ),
-		'1' => __( 'Private Treaty', 'epl-jpi' ),
-		'2' => __( 'By Auction', 'epl-jpi' ),
-		'3' => __( 'Confidential', 'epl-jpi' ),
-		'4' => __( 'By Tender', 'epl-jpi' ),
-		'5' => __( 'Offers Invited', 'epl-jpi' ),
+		'0' => __( 'Not Specified', 'epl-jupix' ),
+		'1' => __( 'Private Treaty', 'epl-jupix' ),
+		'2' => __( 'By Auction', 'epl-jupix' ),
+		'3' => __( 'Confidential', 'epl-jupix' ),
+		'4' => __( 'By Tender', 'epl-jupix' ),
+		'5' => __( 'Offers Invited', 'epl-jupix' ),
 	);
 
 	return $sale_by;
