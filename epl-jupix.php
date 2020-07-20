@@ -51,9 +51,9 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 */
 		public static function instance() {
 			if ( ! isset( self::$instance ) && ! ( self::$instance instanceof EPL_Jupix ) ) {
-				self::$instance = new EPL_Jupix;
+				self::$instance = new EPL_Jupix();
 				self::$instance->hooks();
-				if ( defined('EPL_RUNNING') ) {
+				if ( defined( 'EPL_RUNNING' ) ) {
 					self::$instance->setup_constants();
 					self::$instance->includes();
 				}
@@ -75,6 +75,7 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 
 		/**
 		 * Activation function fires when the plugin is activated.
+		 *
 		 * @since 1.0
 		 * @access public
 		 *
@@ -84,10 +85,10 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 			if ( ! class_exists( 'Easy_Property_Listings' ) ) {
 				// Is this plugin active?
 				if ( is_plugin_active( plugin_basename( __FILE__ ) ) ) {
-			 		// Unset activation notice.
-			 		unset( $_GET[ 'activate' ] );
-			 		// Display notice.
-			 		add_action( 'admin_notices', array( $this, 'admin_notices' ) );
+					// Unset activation notice.
+					unset( $_GET['activate'] );
+					// Display notice.
+					add_action( 'admin_notices', array( $this, 'admin_notices' ) );
 				}
 			}
 		}
@@ -96,10 +97,10 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 * Admin notices
 		 *
 		 * @since 1.0
-		*/
+		 */
 		public function admin_notices() {
 
-			if ( ! is_plugin_active('easy-property-listings/easy-property-listings.php') ) {
+			if ( ! is_plugin_active( 'easy-property-listings/easy-property-listings.php' ) ) {
 				echo '<div class="error"><p>';
 				_e( 'Please activate <b>Easy Property Listings</b> to enable all functions of Easy Property Listings - Stamp Duty Calculator', 'epl' );
 				echo '</p></div>';
@@ -144,7 +145,6 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 				define( 'EPL_JPI_PLUGIN_PATH_INCLUDES', EPL_JPI_PLUGIN_PATH . 'includes/' );
 			}
 
-
 		}
 		/*
 		 * Include required files
@@ -155,21 +155,19 @@ if ( ! class_exists( 'EPL_Jupix' ) ) :
 		 */
 		private function includes() {
 
-			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'import-processing-functions.php' );
-
-
+			include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'import-processing-functions.php';
 
 			if ( is_admin() ) {
 				$epljpi_license = new EPL_License( __FILE__, EPL_JPI_PRODUCT_NAME, '2.0.0', 'Merv Barrett' );
 
-				include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'admin-functions.php' );
+				include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'admin-functions.php';
 			} else {
-				include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'template-functions.php' );
+				include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'template-functions.php';
 
 			}
-			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php' );
-			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'meta-boxes.php' );
-			include_once( EPL_JPI_PLUGIN_PATH_INCLUDES . 'functions.php' );
+			include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'hooks.php';
+			include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'meta-boxes.php';
+			include_once EPL_JPI_PLUGIN_PATH_INCLUDES . 'functions.php';
 
 		}
 

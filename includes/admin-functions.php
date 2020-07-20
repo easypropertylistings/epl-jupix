@@ -10,7 +10,9 @@
  */
 
 // Exit if accessed directly
-if ( ! defined( 'ABSPATH' ) ) exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 
 
@@ -21,7 +23,6 @@ if ( ! defined( 'ABSPATH' ) ) exit;
  *
  * @return If the listing meta property_sold_stc is yes, return the label.
  * @pending need a filter in the epl_manage_listing_column_price_callback function to apply this status and bar
- *
  */
 function epl_jupix_admin_bar_sold_stc() {
 
@@ -31,15 +32,15 @@ function epl_jupix_admin_bar_sold_stc() {
 		'3' => 'Under Offer',
 		'4' => 'Sold STC',
 		'5' => 'Sold',
-		'7' => 'Withdrawn'
+		'7' => 'Withdrawn',
 	);
 
 	global $property, $epl_settings;
 
-	$price 			= $property->get_property_meta('property_price');
-	$property_status	= ucfirst( $property->get_property_meta('property_status') );
-	$sold_stc		= $property->get_property_meta('property_sold_stc');
-	$sold_price		= $property->get_property_meta('property_sold_price');
+	$price           = $property->get_property_meta( 'property_price' );
+	$property_status = ucfirst( $property->get_property_meta( 'property_status' ) );
+	$sold_stc        = $property->get_property_meta( 'property_sold_stc' );
+	$sold_price      = $property->get_property_meta( 'property_sold_price' );
 
 	if ( $property_status != 'Current' ) {
 		return;
@@ -49,9 +50,9 @@ function epl_jupix_admin_bar_sold_stc() {
 		return;
 	}
 
-	$max_price 		= '2000000';
-	if(isset($epl_settings['epl_max_graph_sales_price' ])) {
-		$max_price = (int) $epl_settings['epl_max_graph_sales_price' ];
+	$max_price = '2000000';
+	if ( isset( $epl_settings['epl_max_graph_sales_price'] ) ) {
+		$max_price = (int) $epl_settings['epl_max_graph_sales_price'];
 	}
 
 	$class = '';
@@ -60,15 +61,15 @@ function epl_jupix_admin_bar_sold_stc() {
 		$class = 'bar-under-offer';
 	}
 
-	if ( ! empty ( $sold_price ) ){
-		$barwidth = $max_price == 0 ? 0 : $sold_price/$max_price * 100;
+	if ( ! empty( $sold_price ) ) {
+		$barwidth = $max_price == 0 ? 0 : $sold_price / $max_price * 100;
 	} else {
-		$barwidth = $max_price == 0 ? 0 : $price/$max_price * 100;
+		$barwidth = $max_price == 0 ? 0 : $price / $max_price * 100;
 	}
-	echo '<div class="epl-price-bar '.$class.'">
-			<span style="width:'.$barwidth.'%"></span>
+	echo '<div class="epl-price-bar ' . $class . '">
+			<span style="width:' . $barwidth . '%"></span>
 		</div>';
 
 }
-//add_action( 'epl_manage_listing_column_price' , 'epl_jupix_admin_bar_sold_stc' );
+// add_action( 'epl_manage_listing_column_price' , 'epl_jupix_admin_bar_sold_stc' );
 
